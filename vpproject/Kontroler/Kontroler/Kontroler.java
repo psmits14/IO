@@ -11,7 +11,7 @@ public class Kontroler {
 	private FasadaInterakcji fasadaInterakcji;
 
 	/**
-	 * 
+	 *
 	 * @param nrBiletu
 	 */
 	public boolean sprawdzWaznoscBiletu(int nrBiletu) {
@@ -20,7 +20,7 @@ public class Kontroler {
 	}
 
 	/**
-	 * 
+	 *
 	 * @param nrLinii
 	 */
 	public void dodajLinie(int nrLinii) {
@@ -59,7 +59,7 @@ public class Kontroler {
 	}
 
 	/**
-	 * 
+	 *
 	 * @param args
 	 */
 	public void main(String[] args) {

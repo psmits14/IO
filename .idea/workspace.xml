@@ -4,42 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3eae806-3596-4037-8e82-c720b3d6a0a7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vpp.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vpproject/.vpp.vpp.lck" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vpproject/Kontroler/Kontroler/FasadaInterakcji.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vpproject/Kontroler/Kontroler/Kontekst.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vpproject/Kontroler/Kontroler/Kontroler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vpproject/Kontroler/Kontroler/ObslugaBiletow.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vpproject/Kontroler/Kontroler/ObslugaLinii.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vpproject/Kontroler/Kontroler/StrategiaSprawdzaniaBiletow.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vpproject/Kontroler/Kontroler/StrategiaSprawdzaniaKlienta.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vpproject/Kontroler/Kontroler/StrategiaSprawdzaniaKontrolera.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vpproject/Model/Model/Autobus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vpproject/Model/Model/Bilet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vpproject/Model/Model/FasadaBiletow.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vpproject/Model/Model/FasadaLinii.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vpproject/Model/Model/KreatorAutobus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vpproject/Model/Model/KreatorPojazdow.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vpproject/Model/Model/LiniaAutobusowa.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vpproject/Model/Model/Osoba.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vpproject/Model/Model/Pojazd.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vpproject/Model/Model/Przystanek.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vpproject/Model/Model/PrzystanekLinii.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vpproject/Model/Model/Rola.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vpproject/StrategiaSprawdzaniaKontrolera.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vpproject/StrategiaSprawdzaniaKontrolera.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vpproject/Widok/Widok/InterakcjeZUzytkownikiem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vpproject/Widok/Widok/WyswietlanieInformacji.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vpproject/vpp.vpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vpproject/vpp.vpp.bak_000f" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vpproject/vpp.vpppath" afterDir="false" />
+    <list default="true" id="d3eae806-3596-4037-8e82-c720b3d6a0a7" name="Changes" comment="Wygenerowano klasy">
+      <change afterPath="$PROJECT_DIR$/vpproject/Widok/Widok/FasadaFabrykaWidoku.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vpproject/vpp.vpp.bak_002d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vpproject/Kontroler/Kontroler/Kontroler.java" beforeDir="false" afterPath="$PROJECT_DIR$/vpproject/Kontroler/Kontroler/Kontroler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vpproject/vpp.vpp" beforeDir="false" afterPath="$PROJECT_DIR$/vpproject/vpp.vpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,13 +27,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -73,9 +44,19 @@
       <option name="presentableId" value="Default" />
       <updated>1733477774065</updated>
     </task>
+    <task id="LOCAL-00001" summary="Wygenerowano klasy">
+      <created>1733484635228</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1733484635228</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Wygenerowano klasy" />
+    <option name="LAST_COMMIT_MESSAGE" value="Wygenerowano klasy" />
   </component>
 </project>
