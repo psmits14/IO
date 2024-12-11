@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3eae806-3596-4037-8e82-c720b3d6a0a7" name="Changes" comment="Wygenerowano klasy">
-      <change afterPath="$PROJECT_DIR$/vpproject/Widok/Widok/FasadaFabrykaWidoku.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vpproject/vpp.vpp.bak_002d" afterDir="false" />
+    <list default="true" id="d3eae806-3596-4037-8e82-c720b3d6a0a7" name="Changes" comment="Wygenerowano klasy 2">
+      <change afterPath="$PROJECT_DIR$/vpproject/vpp.vpp.bak_003d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vpproject/vpp.vpp.bak_004d" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vpproject/Kontroler/Kontroler/Kontroler.java" beforeDir="false" afterPath="$PROJECT_DIR$/vpproject/Kontroler/Kontroler/Kontroler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vpproject/vpp.vpp" beforeDir="false" afterPath="$PROJECT_DIR$/vpproject/vpp.vpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -51,12 +50,27 @@
       <option name="project" value="LOCAL" />
       <updated>1733484635228</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Wygenerowano klasy 2">
+      <created>1733740842017</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1733740842017</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Wygenerowano klasy 2">
+      <created>1733740867017</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1733740867017</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Wygenerowano klasy" />
-    <option name="LAST_COMMIT_MESSAGE" value="Wygenerowano klasy" />
+    <MESSAGE value="Wygenerowano klasy 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Wygenerowano klasy 2" />
   </component>
 </project>
