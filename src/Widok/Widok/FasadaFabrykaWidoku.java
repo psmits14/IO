@@ -10,12 +10,10 @@ public class FasadaFabrykaWidoku {
 
 	public void wyswietlOpcje() {
 		// TODO - implement FasadaFabrykaWidoku.wyswietlOpcje
-		throw new UnsupportedOperationException();
 	}
 
 	public FasadaFabrykaWidoku() {
 		// TODO - implement FasadaFabrykaWidoku.FasadaFabrykaWidoku
-		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -24,7 +22,6 @@ public class FasadaFabrykaWidoku {
 	 */
 	public void wyswietlInfoLinia(LiniaAutobusowa liniaAutobusowa) {
 		// TODO - implement FasadaFabrykaWidoku.wyswietlInfoLinia
-		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -33,7 +30,6 @@ public class FasadaFabrykaWidoku {
 	 */
 	public void wyswietlInfoPrzystanek(PrzystanekLinii przystanekLinii) {
 		// TODO - implement FasadaFabrykaWidoku.wyswietlInfoPrzystanek
-		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -42,7 +38,6 @@ public class FasadaFabrykaWidoku {
 	 */
 	public void wyswietlInfoWaznoscBiletu(Bilet bilet) {
 		// TODO - implement FasadaFabrykaWidoku.wyswietlInfoWaznoscBiletu
-		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -51,7 +46,6 @@ public class FasadaFabrykaWidoku {
 	 */
 	public void wyswietlDaneDoWeryfikacji(Osoba osoba) {
 		// TODO - implement FasadaFabrykaWidoku.wyswietlDaneDoWeryfikacji
-		throw new UnsupportedOperationException();
 	}
 
 }

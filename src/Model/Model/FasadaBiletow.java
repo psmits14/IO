@@ -11,9 +11,9 @@ public class FasadaBiletow implements ObslugaBiletow {
 	 * 
 	 * @param nrBiletu
 	 */
-	public boolean SprawdzWaznosc(int nrBiletu) {
+	public boolean sprawdzWaznosc(int nrBiletu) {
 		// TODO - implement FasadaBiletow.SprawdzWaznosc
-		throw new UnsupportedOperationException();
+		return false;
 	}
 
 }

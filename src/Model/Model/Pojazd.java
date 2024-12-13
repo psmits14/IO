@@ -6,7 +6,7 @@ public abstract class Pojazd {
 
 	public String getNrRejestracyjny() {
 		// TODO - implement Pojazd.getNrRejestracyjny
-		throw new UnsupportedOperationException();
+		return null;
 	}
 
 	/**
@@ -15,7 +15,6 @@ public abstract class Pojazd {
 	 */
 	public void setNrRejestracyjny(String NrRejestracyjny) {
 		// TODO - implement Pojazd.setNrRejestracyjny
-		throw new UnsupportedOperationException();
 	}
 
 }

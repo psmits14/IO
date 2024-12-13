@@ -4,7 +4,6 @@ public class StrategiaSprawdzaniaKlienta implements StrategiaSprawdzaniaBiletow 
 
 	public void wykonajStrategie() {
 		// TODO - implement StrategiaSprawdzaniaKlienta.wykonajStrategie
-		throw new UnsupportedOperationException();
 	}
 
 }

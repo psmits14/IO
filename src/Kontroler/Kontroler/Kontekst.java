@@ -14,7 +14,6 @@ public class Kontekst {
 
 	public void wykonajStrategie() {
 		// TODO - implement Kontekst.wykonajStrategie
-		throw new UnsupportedOperationException();
 	}
 
 }

@@ -12,7 +12,6 @@ public class FasadaLinii {
 	 */
 	public void dodajLinie(int nrLinii) {
 		// TODO - implement FasadaLinii.dodajLinie
-		throw new UnsupportedOperationException();
 	}
 
 }

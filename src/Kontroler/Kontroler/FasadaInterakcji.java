@@ -6,32 +6,29 @@ public class FasadaInterakcji implements InterakcjeZUzytkownikiem {
 
 	public int podajNrBiletu() {
 		// TODO - implement FasadaInterakcji.podajNrBiletu
-		throw new UnsupportedOperationException();
+		return 0;
 	}
 
 	public boolean zatwierdzZgodnoscOsoby() {
 		// TODO - implement FasadaInterakcji.zatwierdzZgodnoscOsoby
-		throw new UnsupportedOperationException();
+		return false;
 	}
 
 	public int podajNrLinii() {
 		// TODO - implement FasadaInterakcji.podajNrLinii
-		throw new UnsupportedOperationException();
+		return 0;
 	}
 
 	public void podajNazwePrzystanku() {
 		// TODO - implement FasadaInterakcji.podajNazwePrzystanku
-		throw new UnsupportedOperationException();
 	}
 
 	public void podajNrRejesstracyjny() {
 		// TODO - implement FasadaInterakcji.podajNrRejesstracyjny
-		throw new UnsupportedOperationException();
 	}
 
 	public void podajGodzineOdjazdu() {
 		// TODO - implement FasadaInterakcji.podajGodzineOdjazdu
-		throw new UnsupportedOperationException();
 	}
 
 }

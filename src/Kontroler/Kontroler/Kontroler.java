@@ -16,7 +16,7 @@ public class Kontroler {
 	 */
 	public boolean sprawdzWaznoscBiletu(int nrBiletu) {
 		// TODO - implement Kontroler.sprawdzWaznoscBiletu
-		throw new UnsupportedOperationException();
+		return false;
 	}
 
 	/**
@@ -25,46 +25,41 @@ public class Kontroler {
 	 */
 	public void dodajLinie(int nrLinii) {
 		// TODO - implement Kontroler.dodajLinie
-		throw new UnsupportedOperationException();
 	}
 
 	public boolean zatwierdzZgodnoscOsoby() {
 		// TODO - implement Kontroler.zatwierdzZgodnoscOsoby
-		throw new UnsupportedOperationException();
+		return false;
 	}
 
 	public int podajNrBiletu() {
 		// TODO - implement Kontroler.podajNrBiletu
-		throw new UnsupportedOperationException();
+		return 0;
 	}
 
 	public int podajNrLinii() {
 		// TODO - implement Kontroler.podajNrLinii
-		throw new UnsupportedOperationException();
+		return 0;
 	}
 
 	public void podajGodzineOdjazdu() {
 		// TODO - implement Kontroler.podajGodzineOdjazdu
-		throw new UnsupportedOperationException();
 	}
 
 	public void podajNazwePrzystanku() {
 		// TODO - implement Kontroler.podajNazwePrzystanku
-		throw new UnsupportedOperationException();
 	}
 
 	public void podajNrRejesstracyjny() {
 		// TODO - implement Kontroler.podajNrRejesstracyjny
-		throw new UnsupportedOperationException();
 	}
 
 	/**
 	 *
 	 * @param args
 	 */
-	public void main(String[] args) {
+	public static void main(String[] args) {
 		// TODO - implement Kontroler.main
-		throw new UnsupportedOperationException();
 	}
 
 }

@@ -10,7 +10,6 @@ public class LiniaAutobusowa {
 
 	public LiniaAutobusowa() {
 		// TODO - implement LiniaAutobusowa.LiniaAutobusowa
-		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -19,7 +18,6 @@ public class LiniaAutobusowa {
 	 */
 	public void dodajLinie(int nrLinii) {
 		// TODO - implement LiniaAutobusowa.dodajLinie
-		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -28,22 +26,19 @@ public class LiniaAutobusowa {
 	 */
 	public boolean sprawdzIstnienieLinii(int NrLinii) {
 		// TODO - implement LiniaAutobusowa.sprawdzIstnienieLinii
-		throw new UnsupportedOperationException();
+		return false;
 	}
 
 	public void dodajPrzystanekDoLinii() {
 		// TODO - implement LiniaAutobusowa.dodajPrzystanekDoLinii
-		throw new UnsupportedOperationException();
 	}
 
 	public void dodajPojazdDoLinii() {
 		// TODO - implement LiniaAutobusowa.dodajPojazdDoLinii
-		throw new UnsupportedOperationException();
 	}
 
 	public void dodajGodzinyOdjazdowPrzystanku() {
 		// TODO - implement LiniaAutobusowa.dodajGodzinyOdjazdowPrzystanku
-		throw new UnsupportedOperationException();
 	}
 
 }
