@@ -10,10 +10,11 @@ public class StrategiaSprawdzaniaKlienta implements StrategiaSprawdzaniaBiletow 
 		System.out.println("Strategia dla Klienta: Sprawdzanie biletu...");
 
 		int nrBiletu = fasadaInterakcji.podajNrBiletu();
-		boolean czyWazny = obslugaBiletow.sprawdzWaznosc(nrBiletu);
+		Bilet bilet = obslugaBiletow.pobierzBilet(nrBiletu);
 
-		if (czyWazny) {
+		if (bilet != null && obslugaBiletow.sprawdzWaznosc(nrBiletu)) {
 			System.out.println("Bilet nr " + nrBiletu + " jest ważny.");
+			System.out.println("Bilet ważny do: " + bilet.getDataWaznosci());
 		} else {
 			System.out.println("Bilet nr " + nrBiletu + " jest nieważny.");
 		}

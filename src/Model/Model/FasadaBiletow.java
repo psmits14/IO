@@ -17,7 +17,12 @@ public class FasadaBiletow implements ObslugaBiletow {
 
 	@Override
 	public Bilet pobierzBilet(int nrBiletu) {
-		return null;
+		for (Bilet bilet : Bilety) {
+			if (bilet.getNrBiletu() == nrBiletu) {
+				return bilet; // Zwraca bilet o podanym numerze
+			}
+		}
+		return null; // Jeśli bilet o podanym numerze nie istnieje
 	}
 
 	public void dodajBilet(Bilet bilet) {
