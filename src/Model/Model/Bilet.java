@@ -10,61 +10,56 @@ public class Bilet {
 	private Osoba Osoba;
 	private LocalDateTime DataWaznosci;
 
-	public Bilet() {
-		// TODO - implement Bilet.Bilet
+	public Bilet(int nrBiletu, boolean imiennosc, boolean ulga, Osoba osoba, LocalDateTime dataWaznosci) {
+		this.NrBiletu = nrBiletu;
+		this.Imiennosc = imiennosc;
+		this.Ulga = ulga;
+		this.Osoba = osoba;
+		this.DataWaznosci = dataWaznosci;
 	}
 
 	public int getNrBiletu() {
-		// TODO - implement Bilet.getNrBiletu
-		return 0;
+		return NrBiletu;
 	}
 
-	/**
-	 * 
-	 * @param NrBiletu
-	 */
-	public void setNrBiletu(int NrBiletu) {
-		// TODO - implement Bilet.setNrBiletu
+	public void setNrBiletu(int nrBiletu) {
+		this.NrBiletu = nrBiletu;
 	}
 
 	public boolean getImiennosc() {
-		// TODO - implement Bilet.getImiennosc
-		return false;
+		return Imiennosc;
 	}
 
-	/**
-	 * 
-	 * @param Imiennosc
-	 */
-	public void setImiennosc(boolean Imiennosc) {
-		// TODO - implement Bilet.setImiennosc
+	public void setImiennosc(boolean imiennosc) {
+		this.Imiennosc = imiennosc;
+	}
+
+	public boolean getUlga() {
+		return Ulga;
+	}
+
+	public void setUlga(boolean ulga) {
+		this.Ulga = ulga;
 	}
 
 	public LocalDateTime getDataWaznosci() {
-		// TODO - implement Bilet.getDataWaznosci
-		return null;
+		return DataWaznosci;
 	}
 
-	/**
-	 *
-	 * @param DataWaznosci
-	 */
-	public void setDataWaznosci(LocalDateTime DataWaznosci) {
-		// TODO - implement Bilet.setDataWaznosci
+	public void setDataWaznosci(LocalDateTime dataWaznosci) {
+		this.DataWaznosci = dataWaznosci;
 	}
 
 	public Osoba getOsoba() {
-		// TODO - implement Bilet.getOsoba
-		return null;
+		return Osoba;
 	}
 
-	/**
-	 * 
-	 * @param nrBiletu
-	 */
+	public void setOsoba(Osoba osoba) {
+		this.Osoba = osoba;
+	}
+
 	public boolean SprawdzWaznosc(int nrBiletu) {
-		// TODO - implement Bilet.SprawdzWaznosc
-		return false;
+		// Sprawdzenie, czy numer biletu pasuje oraz czy data ważności nie minęła
+		return DataWaznosci != null && LocalDateTime.now().isBefore(DataWaznosci);
 	}
-
 }

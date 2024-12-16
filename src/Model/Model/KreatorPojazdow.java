@@ -1,10 +1,14 @@
 package Model.Model;
 
-public abstract class KreatorPojazdow {
+public class KreatorPojazdow {
 
-	public Pojazd stworzPojazd() {
-		// TODO - implement KreatorPojazdow.stworzPojazd
-		return null;
+	// Metoda tworząca pojazd z podanym numerem rejestracyjnym
+	public Pojazd stworzPojazd(String nrRejestracyjny) {
+		if (nrRejestracyjny == null || nrRejestracyjny.isEmpty()) {
+			throw new IllegalArgumentException("Numer rejestracyjny nie może być pusty.");
+		}
+		Pojazd pojazd = new Pojazd();
+		pojazd.setNrRejestracyjny(nrRejestracyjny);
+		return pojazd;
 	}
-
 }

@@ -11,7 +11,13 @@ public class FasadaLinii {
 	 * @param nrLinii
 	 */
 	public void dodajLinie(int nrLinii) {
-		// TODO - implement FasadaLinii.dodajLinie
+		if (LinieAutobusowe.stream().noneMatch(linia -> linia.getNrLinii() == nrLinii)) {
+			LiniaAutobusowa nowaLinia = new LiniaAutobusowa(nrLinii);
+			LinieAutobusowe.add(nowaLinia);
+			System.out.println("Dodano linię o numerze: " + nrLinii);
+		} else {
+			System.out.println("Linia o numerze " + nrLinii + " już istnieje.");
+		}
 	}
 
 }

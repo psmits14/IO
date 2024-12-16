@@ -1,20 +1,28 @@
 package Model.Model;
 
-public abstract class Pojazd {
+import java.util.Objects;
 
-	private String NrRejestracyjny = "";
+public class Pojazd {
+	private String nrRejestracyjny = "";
 
 	public String getNrRejestracyjny() {
-		// TODO - implement Pojazd.getNrRejestracyjny
-		return null;
+		return nrRejestracyjny;
 	}
 
-	/**
-	 * 
-	 * @param NrRejestracyjny
-	 */
-	public void setNrRejestracyjny(String NrRejestracyjny) {
-		// TODO - implement Pojazd.setNrRejestracyjny
+	public void setNrRejestracyjny(String nrRejestracyjny) {
+		this.nrRejestracyjny = nrRejestracyjny;
 	}
 
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) return true;
+		if (obj == null || getClass() != obj.getClass()) return false;
+		Pojazd pojazd = (Pojazd) obj;
+		return Objects.equals(nrRejestracyjny, pojazd.nrRejestracyjny);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(nrRejestracyjny);
+	}
 }

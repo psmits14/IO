@@ -1,5 +1,4 @@
 package Model.Model;
-
 public class Osoba {
 
 	private String Imie = "";
@@ -8,60 +7,51 @@ public class Osoba {
 	private String NrDokumentu = "";
 	private Rola Rola = Model.Model.Rola.Klient;
 
-	public Osoba() {
-		// TODO - implement Osoba.Osoba
+	public Osoba(String imie, String nazwisko, int pesel, String nrDokumentu, Rola rola) {
+		this.Imie = imie;
+		this.Nazwisko = nazwisko;
+		this.Pesel = pesel;
+		this.NrDokumentu = nrDokumentu;
+		this.Rola = rola;
 	}
 
 	public String getImie() {
-		// TODO - implement Osoba.getImie
-		return null;
+		return Imie;
 	}
 
-	/**
-	 * 
-	 * @param Imie
-	 */
-	public void setImie(String Imie) {
-		// TODO - implement Osoba.setImie
+	public void setImie(String imie) {
+		this.Imie = imie;
 	}
 
 	public String getNazwisko() {
-		// TODO - implement Osoba.getNazwisko
-		return null;
+		return Nazwisko;
 	}
 
-	/**
-	 * 
-	 * @param Nazwisko
-	 */
-	public void setNazwisko(String Nazwisko) {
-		// TODO - implement Osoba.setNazwisko
+	public void setNazwisko(String nazwisko) {
+		this.Nazwisko = nazwisko;
 	}
 
 	public int getPesel() {
-		// TODO - implement Osoba.getPesel
-		return 0;
+		return Pesel;
 	}
 
-	/**
-	 * 
-	 * @param Pesel
-	 */
-	public void setPesel(int Pesel) {
-		// TODO - implement Osoba.setPesel
+	public void setPesel(int pesel) {
+		this.Pesel = pesel;
 	}
 
 	public String getNrDokumentu() {
-		// TODO - implement Osoba.getNrDokumentu
-		return null;
+		return NrDokumentu;
 	}
 
-	/**
-	 * 
-	 * @param NrDokumentu
-	 */
-	public void setNrDokumentu(String NrDokumentu) {
-		// TODO - implement Osoba.setNrDokumentu
+	public void setNrDokumentu(String nrDokumentu) {
+		this.NrDokumentu = nrDokumentu;
 	}
 
+	public Rola getRola() {
+		return Rola;
+	}
+
+	public void setRola(Rola rola) {
+		this.Rola = rola;
+	}
 }
