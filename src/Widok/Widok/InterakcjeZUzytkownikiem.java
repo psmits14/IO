@@ -1,6 +1,10 @@
 	package Widok.Widok;
 
-public interface InterakcjeZUzytkownikiem {
+	import Model.Model.Rola;
+
+	import java.time.LocalTime;
+
+	public interface InterakcjeZUzytkownikiem {
 
 	int podajNrBiletu();
 
@@ -8,10 +12,11 @@ public interface InterakcjeZUzytkownikiem {
 
 	int podajNrLinii();
 
-	void podajNrRejesstracyjny();
+	String podajNrRejesstracyjny();
 
-	void podajNazwePrzystanku();
+	String podajNazwePrzystanku();
 
-	void podajGodzineOdjazdu();
+	LocalTime podajGodzineOdjazdu();
 
+	Rola podajSwojaRole();
 }

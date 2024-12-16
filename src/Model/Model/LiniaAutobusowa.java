@@ -14,7 +14,12 @@ public class LiniaAutobusowa {
 	}
 
 	public int getNrLinii() {
-		return nrLinii; // Poprawione odwołanie do pola
+
+		return nrLinii;
+	}
+
+	public Collection<PrzystanekLinii> getPrzystanki() {
+		return przystanki;
 	}
 
 	public boolean dodajPrzystanekDoLinii(String nazwaPrzystanku) {
@@ -46,7 +51,6 @@ public class LiniaAutobusowa {
 			System.out.println("Pojazd o numerze rejestracyjnym: " + nrRejestracyjny + " już istnieje w linii.");
 		}
 	}
-
 
 
 	public void dodajGodzinyOdjazdowPrzystanku(String nazwaPrzystanku, Collection<LocalTime> godzinyOdjazdow) {

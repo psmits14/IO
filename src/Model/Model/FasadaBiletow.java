@@ -15,7 +15,12 @@ public class FasadaBiletow implements ObslugaBiletow {
 			return false; // Nie znaleziono ważnego biletu
 		}
 
-		public void dodajBilet(Bilet bilet) {
+	@Override
+	public Bilet pobierzBilet(int nrBiletu) {
+		return null;
+	}
+
+	public void dodajBilet(Bilet bilet) {
 			if (bilet != null) {
 				Bilety.add(bilet);
 			}

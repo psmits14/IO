@@ -3,49 +3,78 @@ package Widok.Widok;
 import java.util.*;
 import Model.Model.*;
 
-public class FasadaFabrykaWidoku {
+public class FasadaFabrykaWidoku implements WyswietlanieInformacji {
 
-	private Collection<Integer> idAplikacji;
+	private Collection<Integer> idAplikacji = new ArrayList<>();
 	private InterakcjeZUzytkownikiem interakcjaZUzytkownikiem;
 
-	public void wyswietlOpcje() {
-		// TODO - implement FasadaFabrykaWidoku.wyswietlOpcje
+	public FasadaFabrykaWidoku(InterakcjeZUzytkownikiem interakcjaZUzytkownikiem) {
+		this.interakcjaZUzytkownikiem = interakcjaZUzytkownikiem;
+		System.out.println("Fabryka widoku zainicjalizowana.");
 	}
 
 	public FasadaFabrykaWidoku() {
-		// TODO - implement FasadaFabrykaWidoku.FasadaFabrykaWidoku
+
 	}
 
-	/**
-	 * 
-	 * @param liniaAutobusowa
-	 */
+	@Override
+	public void wyswietlOpcje() {
+		System.out.println("1. Wyświetl informacje o linii autobusowej.");
+		System.out.println("2. Wyświetl informacje o przystanku.");
+		System.out.println("3. Sprawdź ważność biletu.");
+		System.out.println("4. Wyświetl dane do weryfikacji.");
+		System.out.println("5. Zakończ.");
+	}
+
+	@Override
 	public void wyswietlInfoLinia(LiniaAutobusowa liniaAutobusowa) {
-		// TODO - implement FasadaFabrykaWidoku.wyswietlInfoLinia
+		if (liniaAutobusowa != null) {
+			System.out.println("Numer linii: " + liniaAutobusowa.getNrLinii());
+			System.out.println("Przystanki na linii:");
+			liniaAutobusowa.getPrzystanki().forEach(przystanek ->
+					System.out.println("- " + przystanek.getPrzystanek().getNazwa())
+			);
+		} else {
+			System.out.println("Brak danych o linii autobusowej.");
+		}
 	}
 
-	/**
-	 * 
-	 * @param przystanekLinii
-	 */
+	@Override
 	public void wyswietlInfoPrzystanek(PrzystanekLinii przystanekLinii) {
-		// TODO - implement FasadaFabrykaWidoku.wyswietlInfoPrzystanek
+		if (przystanekLinii != null) {
+			System.out.println("Przystanek: " + przystanekLinii.getPrzystanek().getNazwa());
+			System.out.println("Numer linii: " + przystanekLinii.getLinia().getNrLinii());
+			System.out.println("Godziny odjazdów:");
+			przystanekLinii.getGodzinyOdjazdow().forEach(godzina ->
+					System.out.println("- " + godzina)
+			);
+		} else {
+			System.out.println("Brak danych o przystanku.");
+		}
 	}
 
-	/**
-	 * 
-	 * @param bilet
-	 */
+
+	@Override
 	public void wyswietlInfoWaznoscBiletu(Bilet bilet) {
-		// TODO - implement FasadaFabrykaWidoku.wyswietlInfoWaznoscBiletu
+		if (bilet != null) {
+			boolean wazny = bilet.SprawdzWaznosc(bilet.getNrBiletu());
+			System.out.println("Bilet nr " + bilet.getNrBiletu() + " jest " +
+					(wazny ? "ważny." : "nieważny."));
+		} else {
+			System.out.println("Bilet nie istnieje.");
+		}
 	}
 
-	/**
-	 * 
-	 * @param osoba
-	 */
+	@Override
 	public void wyswietlDaneDoWeryfikacji(Osoba osoba) {
-		// TODO - implement FasadaFabrykaWidoku.wyswietlDaneDoWeryfikacji
+		if (osoba != null) {
+			System.out.println("Imię: " + osoba.getImie());
+			System.out.println("Nazwisko: " + osoba.getNazwisko());
+			System.out.println("PESEL: " + osoba.getPesel());
+			System.out.println("Nr Dokumentu: " + osoba.getNrDokumentu());
+			System.out.println("Rola: " + osoba.getRola());
+		} else {
+			System.out.println("Brak danych o osobie.");
+		}
 	}
-
 }

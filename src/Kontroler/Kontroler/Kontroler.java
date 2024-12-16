@@ -1,5 +1,6 @@
 package Kontroler.Kontroler;
 
+import Model.Model.Rola;
 import Widok.Widok.*;
 
 public class Kontroler {
@@ -61,5 +62,37 @@ public class Kontroler {
 	public static void main(String[] args) {
 		// TODO - implement Kontroler.main
 	}
+
+
+	public void wybierzStrategieSprawdzaniaBiletow() {
+		// Pobieranie roli użytkownika
+		Rola rolaUzytkownika = fasadaInterakcji.podajSwojaRole();
+
+		// Wybór strategii na podstawie roli
+		StrategiaSprawdzaniaBiletow strategia = null;
+
+		if (rolaUzytkownika != null) {
+			switch (rolaUzytkownika) {
+				case Klient:
+					strategia = new StrategiaSprawdzaniaKlienta();
+					break;
+				case Kontroler_biletow:
+					strategia = new StrategiaSprawdzaniaKontrolera(new FasadaFabrykaWidoku());
+					break;
+				default:
+					System.out.println("Brak strategii dla roli: " + rolaUzytkownika);
+					return;
+			}
+
+			// Ustawienie strategii w kontekście
+			kontekst.setStrategia(strategia);
+
+			// Przekazanie zależności do strategii i jej wykonanie
+			kontekst.wykonajStrategie(fasadaInterakcji, obslugaBiletow);
+		} else {
+			System.out.println("Nie udało się określić roli użytkownika.");
+		}
+	}
+
 
 }
