@@ -1,6 +1,8 @@
 package Widok.Widok;
 
 import java.util.*;
+
+import Kontroler.Kontroler.InterakcjeZUzytkownikiem;
 import Model.Model.*;
 
 public class FasadaFabrykaWidoku implements WyswietlanieInformacji {
@@ -13,16 +15,12 @@ public class FasadaFabrykaWidoku implements WyswietlanieInformacji {
 		System.out.println("Fabryka widoku zainicjalizowana.");
 	}
 
-	public FasadaFabrykaWidoku() {
-
-	}
-
 	@Override
 	public void wyswietlOpcje() {
-		System.out.println("1. Wyświetl informacje o linii autobusowej.");
-		System.out.println("2. Wyświetl informacje o przystanku.");
-		System.out.println("3. Sprawdź ważność biletu.");
-		System.out.println("4. Wyświetl dane do weryfikacji.");
+		System.out.println("1. Dodaj linie autobusowa.");
+		System.out.println("2. Wyswietl informacje o linii autobusowej.");
+		System.out.println("3. Wyświetl informacje o przystanku.");
+		System.out.println("4. Sprawdź ważność biletu.");
 		System.out.println("5. Zakończ.");
 	}
 

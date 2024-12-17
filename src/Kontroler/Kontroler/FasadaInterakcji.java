@@ -1,7 +1,7 @@
 package Kontroler.Kontroler;
 
 import Model.Model.Rola;
-import Widok.Widok.*;
+
 import java.time.LocalTime;
 import java.util.Scanner;
 
@@ -114,5 +114,27 @@ public class FasadaInterakcji implements InterakcjeZUzytkownikiem {
 					System.out.println("Nieprawidłowy wybór. Wybierz ponownie (1-4): ");
 			}
 		}
+	}
+
+	@Override
+	public int podajWyborMenu() {
+		int wybor = -1;
+		boolean poprawneDane = false;
+
+		while (!poprawneDane) {
+			System.out.print("Wybierz opcję z menu: ");
+			if (scanner.hasNextInt()) {
+				wybor = scanner.nextInt();
+				if (wybor >= 1 && wybor <= 5) { // Zakładamy, że mamy 5 opcji w menu
+					poprawneDane = true;
+				} else {
+					System.out.println("Opcja spoza zakresu. Wprowadź liczbę od 1 do 5.");
+				}
+			} else {
+				System.out.println("Nieprawidłowy wybór. Wprowadź liczbę od 1 do 5.");
+				scanner.next(); // Wyczyść nieprawidłowe dane
+			}
+		}
+		return wybor;
 	}
 }

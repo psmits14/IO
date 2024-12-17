@@ -1,4 +1,4 @@
-	package Widok.Widok;
+	package Kontroler.Kontroler;
 
 	import Model.Model.Rola;
 
@@ -19,4 +19,6 @@
 	LocalTime podajGodzineOdjazdu();
 
 	Rola podajSwojaRole();
+
+	int podajWyborMenu();
 }

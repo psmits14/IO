@@ -2,7 +2,7 @@ package Kontroler.Kontroler;
 
 import Model.Model.ObslugaBiletow;
 import Model.Model.ObslugaLinii;
-import Model.Model.Rola;
+import Model.Model.*;
 import Widok.Widok.*;
 
 public class Kontroler {
@@ -11,15 +11,65 @@ public class Kontroler {
 	private Kontekst kontekst;
 	private ObslugaLinii obslugaLinii;
 	private ObslugaBiletow obslugaBiletow;
-	private FasadaInterakcji fasadaInterakcji;
+	private InterakcjeZUzytkownikiem interakcjeZUzytkownikiem;
 
-	public Kontroler(FasadaInterakcji fasadaInterakcji, ObslugaBiletow obslugaBiletow, ObslugaLinii obslugaLinii, WyswietlanieInformacji wyswietlanieInformacji) {
-		this.fasadaInterakcji = fasadaInterakcji;
-		this.obslugaBiletow = obslugaBiletow;
+	public Kontroler(ObslugaLinii obslugaLinii, ObslugaBiletow obslugaBiletow, WyswietlanieInformacji wyswietlanieInformacji,
+					 InterakcjeZUzytkownikiem interakcjeZUzytkownikiem) {
 		this.obslugaLinii = obslugaLinii;
+		this.obslugaBiletow = obslugaBiletow;
 		this.wyswietlanieInformacji = wyswietlanieInformacji;
+		this.interakcjeZUzytkownikiem = interakcjeZUzytkownikiem;
 		this.kontekst = new Kontekst();
 	}
+
+	public void pokazMenu() {
+		boolean running = true;
+		while (running) {
+			wyswietlanieInformacji.wyswietlOpcje();
+			System.out.print("Wybierz opcję: ");
+			int opcja = interakcjeZUzytkownikiem.podajWyborMenu(); // Wykorzystanie metody do pobrania liczby
+
+			switch (opcja) {
+				case 1:	//dodaj linie
+					dodawanieLinii();
+					break;
+				case 2:	//info linia
+					informacjeLinia();
+					break;
+				case 3:	//info przystanek
+					informacjePrzystanek();
+					break;
+				case 4:	//sprawdz waznosc
+					sprawdzanieWaznosci();
+					break;
+				case 5:	//koniec
+					System.out.println("Zamykanie aplikacji...");
+					running = false;
+					break;
+				default:
+					System.out.println("Nieprawidłowa opcja. Spróbuj ponownie.");
+			}
+		}
+	}
+
+
+
+	public void dodawanieLinii(){
+
+	}
+
+	public void informacjeLinia(){
+
+	}
+
+	public void informacjePrzystanek(){
+
+	}
+
+	public void sprawdzanieWaznosci(){
+
+	}
+
 
 
 	/**
@@ -74,13 +124,22 @@ public class Kontroler {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// TODO - implement Kontroler.main
+		InterakcjeZUzytkownikiem interakcje = new FasadaInterakcji();
+		WyswietlanieInformacji widok = new FasadaFabrykaWidoku(interakcje);
+		ObslugaLinii obslugaLinii = new FasadaLinii();
+		ObslugaBiletow obslugaBiletow = new FasadaBiletow();
+
+		// Tworzenie kontrolera z wymaganymi zależnościami
+		Kontroler kontroler = new Kontroler(obslugaLinii, obslugaBiletow, widok, interakcje);
+
+		// Uruchomienie menu aplikacji
+		kontroler.pokazMenu();
 	}
 
 
 	public void wybierzStrategieSprawdzaniaBiletow() {
 		// Pobieranie roli użytkownika
-		Rola rolaUzytkownika = fasadaInterakcji.podajSwojaRole();
+		Rola rolaUzytkownika = interakcjeZUzytkownikiem.podajSwojaRole();
 
 		// Wybór strategii na podstawie roli
 		if (rolaUzytkownika == null) {
@@ -101,7 +160,7 @@ public class Kontroler {
 		}
 
 		// Przekazanie zależności do strategii i jej wykonanie
-		kontekst.wykonajStrategie(fasadaInterakcji, obslugaBiletow);
+		kontekst.wykonajStrategie(interakcjeZUzytkownikiem, obslugaBiletow);
 	}
 
 

@@ -18,12 +18,12 @@ public class Kontekst {
 	/**
 	 * Wykonuje aktualnie ustawioną strategię sprawdzania biletów.
 	 *
-	 * @param fasadaInterakcji fasada do interakcji z użytkownikiem
+	 * @param interakcjeZUzytkownikiem interfejs do interakcji z użytkownikiem
 	 * @param obslugaBiletow interfejs do sprawdzania biletów
 	 */
-	public void wykonajStrategie(FasadaInterakcji fasadaInterakcji, ObslugaBiletow obslugaBiletow) {
+	public void wykonajStrategie(InterakcjeZUzytkownikiem interakcjeZUzytkownikiem, ObslugaBiletow obslugaBiletow) {
 		if (strategia != null) {
-			strategia.wykonajStrategie(fasadaInterakcji, obslugaBiletow);
+			strategia.wykonajStrategie(interakcjeZUzytkownikiem, obslugaBiletow);
 		} else {
 			System.out.println("Nie ustawiono strategii sprawdzania biletów.");
 		}
