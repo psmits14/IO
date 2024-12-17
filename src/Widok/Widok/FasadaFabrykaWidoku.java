@@ -7,17 +7,13 @@ import Model.Model.*;
 
 public class FasadaFabrykaWidoku implements WyswietlanieInformacji {
 
-	private Collection<Integer> idAplikacji = new ArrayList<>();
-	private InterakcjeZUzytkownikiem interakcjaZUzytkownikiem;
-
-	public FasadaFabrykaWidoku(InterakcjeZUzytkownikiem interakcjaZUzytkownikiem) {
-		this.interakcjaZUzytkownikiem = interakcjaZUzytkownikiem;
+	public FasadaFabrykaWidoku() {
 	}
 
 	@Override
 	public void wyswietlOpcje() {
 		System.out.println("1. Dodaj linie autobusowa.");
-		System.out.println("2. Wyswietl informacje o linii autobusowej.");
+		System.out.println("2. Wyświetl informacje o linii autobusowej.");
 		System.out.println("3. Wyświetl informacje o przystanku.");
 		System.out.println("4. Sprawdź ważność biletu.");
 		System.out.println("5. Zakończ.");
@@ -63,7 +59,7 @@ public class FasadaFabrykaWidoku implements WyswietlanieInformacji {
 					System.out.println("- " + godzina)
 			);
 		} else {
-			System.out.println("Brak danych o przystanku.");
+			wyswietlBlad("Brak danych o przystanku.");
 		}
 	}
 
@@ -71,10 +67,10 @@ public class FasadaFabrykaWidoku implements WyswietlanieInformacji {
 	@Override
 	public void wyswietlInfoWaznoscBiletu(boolean waznosc) {
 		if (waznosc == true){
-			System.out.println("Bilet jest wazny");
+			System.out.println("Bilet jest ważny. :) ");
 		}
 		else {
-			System.out.println("Bilet jest niewazny");
+			System.out.println("Bilet jest nieważny. :( ");
 		}
 	}
 
@@ -93,7 +89,7 @@ public class FasadaFabrykaWidoku implements WyswietlanieInformacji {
 
 	@Override
 	public void wyswietlBlad(String komunikat) {
-		System.out.println("Blad! " + komunikat);
+		System.out.println("Błąd! " + komunikat);
 	}
 
 	@Override

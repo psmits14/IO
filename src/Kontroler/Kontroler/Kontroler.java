@@ -1,7 +1,5 @@
 package Kontroler.Kontroler;
 
-import Model.Model.ObslugaBiletow;
-import Model.Model.ObslugaLinii;
 import Model.Model.*;
 import Widok.Widok.*;
 
@@ -54,8 +52,6 @@ public class Kontroler {
 			}
 		}
 	}
-
-
 
 	public void dodawanieLinii() {
 		System.out.println("--- Dodawanie nowej linii autobusowej ---");
@@ -143,7 +139,7 @@ public class Kontroler {
 
 		// Wybór strategii na podstawie roli
 		if (rolaUzytkownika == null) {
-			System.out.println("Nie udało się określić roli użytkownika.");
+			wyswietlanieInformacji.wyswietlBlad("Nie udało się określić roli użytkownika.");
 			return;
 		}
 
@@ -155,7 +151,7 @@ public class Kontroler {
 				kontekst.setStrategia(new StrategiaSprawdzaniaKontrolera(wyswietlanieInformacji));
 				break;
 			default:
-				System.out.println("Brak strategii dla roli: " + rolaUzytkownika);
+				System.out.println("Brak możliwości sprawdzenia biletów dla roli: " + rolaUzytkownika);
 				return;
 		}
 
@@ -170,7 +166,7 @@ public class Kontroler {
 	 */
 	public static void main(String[] args) {
 		InterakcjeZUzytkownikiem interakcje = new FasadaInterakcji();
-		WyswietlanieInformacji widok = new FasadaFabrykaWidoku(interakcje);
+		WyswietlanieInformacji widok = new FasadaFabrykaWidoku();
 		ObslugaLinii obslugaLinii = new FasadaLinii();
 		ObslugaBiletow obslugaBiletow = new FasadaBiletow();
 
