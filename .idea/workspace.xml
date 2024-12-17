@@ -6,11 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d3eae806-3596-4037-8e82-c720b3d6a0a7" name="Changes" comment="Drobne poprawki w strategiach">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Kontroler/Kontroler/Kontekst.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Kontroler/Kontroler/Kontekst.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Kontroler/Kontroler/Kontroler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Kontroler/Kontroler/Kontroler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Kontroler/Kontroler/StrategiaSprawdzaniaBiletow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Kontroler/Kontroler/StrategiaSprawdzaniaBiletow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Kontroler/Kontroler/StrategiaSprawdzaniaKlienta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Kontroler/Kontroler/StrategiaSprawdzaniaKlienta.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Kontroler/Kontroler/StrategiaSprawdzaniaKontrolera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Kontroler/Kontroler/StrategiaSprawdzaniaKontrolera.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,7 +116,14 @@
       <option name="project" value="LOCAL" />
       <updated>1734431976786</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Drobne poprawki w strategiach">
+      <created>1734432618786</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1734432618786</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

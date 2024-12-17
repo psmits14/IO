@@ -3,16 +3,22 @@ package Kontroler.Kontroler;
 import Model.Model.Rola;
 import Widok.Widok.*;
 
-import java.time.LocalTime;
-
 public class Kontroler {
 
-	private WyswietlanieInformacji wyswietlenieInformacji;
+	private WyswietlanieInformacji wyswietlanieInformacji;
 	private Kontekst kontekst;
 	private ObslugaLinii obslugaLinii;
 	private ObslugaBiletow obslugaBiletow;
-	private InterakcjeZUzytkownikiem  interakcje;
 	private FasadaInterakcji fasadaInterakcji;
+
+	public Kontroler(FasadaInterakcji fasadaInterakcji, ObslugaBiletow obslugaBiletow, ObslugaLinii obslugaLinii, WyswietlanieInformacji wyswietlanieInformacji) {
+		this.fasadaInterakcji = fasadaInterakcji;
+		this.obslugaBiletow = obslugaBiletow;
+		this.obslugaLinii = obslugaLinii;
+		this.wyswietlanieInformacji = wyswietlanieInformacji;
+		this.kontekst = new Kontekst();
+	}
+
 
 	/**
 	 *
@@ -37,29 +43,28 @@ public class Kontroler {
 	}
 
 	public int podajNrBiletu() {
-		return interakcje.podajNrBiletu();
+		// TODO - implement Kontroler.podajNrBiletu
+		return 0;
 	}
 
 	public int podajNrLinii() {
-		return interakcje.podajNrLinii();
+		// TODO - implement Kontroler.podajNrLinii
+		return 0;
 	}
 
 	public void podajGodzineOdjazdu() {
-		LocalTime godzina = interakcje.podajGodzineOdjazdu();
-		System.out.println("Godzina odjazdu: " + godzina);
+		// TODO - implement Kontroler.podajGodzineOdjazdu
 	}
 
 	public void podajNazwePrzystanku() {
-		String przystanek = interakcje.podajNazwePrzystanku();
-		System.out.println("Nazwa przystanku: " + przystanek);
+		// TODO - implement Kontroler.podajNazwePrzystanku
 	}
 
 	/**
 	 * Pobiera numer rejestracyjny pojazdu.
 	 */
 	public void podajNrRejestracyjny() {
-		String nrRejestracyjny = interakcje.podajNrRejesstracyjny();
-		System.out.println("Numer rejestracyjny: " + nrRejestracyjny);
+
 	}
 
 	/**
