@@ -9,6 +9,7 @@ public class Kontroler {
 	private Kontekst kontekst;
 	private ObslugaLinii obslugaLinii;
 	private ObslugaBiletow obslugaBiletow;
+	private InterakcjeZUzytkownikiem  interakcje;
 	private FasadaInterakcji fasadaInterakcji;
 
 	/**
@@ -66,32 +67,28 @@ public class Kontroler {
 
 	public void wybierzStrategieSprawdzaniaBiletow() {
 		// Pobieranie roli użytkownika
-		Rola rolaUzytkownika = fasadaInterakcji.podajSwojaRole();
+		Rola rolaUzytkownika = interakcje.podajSwojaRole();
 
 		// Wybór strategii na podstawie roli
-		StrategiaSprawdzaniaBiletow strategia = null;
-
-		if (rolaUzytkownika != null) {
-			switch (rolaUzytkownika) {
-				case Klient:
-					strategia = new StrategiaSprawdzaniaKlienta();
-					break;
-				case Kontroler_biletow:
-					strategia = new StrategiaSprawdzaniaKontrolera();
-					break;
-				default:
-					System.out.println("Brak strategii dla roli: " + rolaUzytkownika);
-					return;
-			}
-
-			// Ustawienie strategii w kontekście
-			kontekst.setStrategia(strategia);
-
-			// Przekazanie zależności do strategii i jej wykonanie
-			kontekst.wykonajStrategie(fasadaInterakcji, obslugaBiletow);
-		} else {
+		if (rolaUzytkownika == null) {
 			System.out.println("Nie udało się określić roli użytkownika.");
+			return;
 		}
+
+		switch (rolaUzytkownika) {
+			case Klient:
+				kontekst.setStrategia(new StrategiaSprawdzaniaKlienta());
+				break;
+			case Kontroler_biletow:
+				kontekst.setStrategia(new StrategiaSprawdzaniaKontrolera());
+				break;
+			default:
+				System.out.println("Brak strategii dla roli: " + rolaUzytkownika);
+				return;
+		}
+
+		// Przekazanie zależności do strategii i jej wykonanie
+		kontekst.wykonajStrategie(interakcje, obslugaBiletow);
 	}
 
 
