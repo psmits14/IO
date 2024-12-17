@@ -5,13 +5,11 @@ import java.util.Collection;
 public interface ObslugaLinii {
 
 	/**
-	 * 
 	 * @param nrLinii
+	 * @return
 	 */
-	void dodajLinie(int nrLinii);
+	boolean dodajLinie(int nrLinii);
 
 	LiniaAutobusowa znajdzLinie(int nrLinii);
-
-	Collection<LiniaAutobusowa> getLinie();
 
 }

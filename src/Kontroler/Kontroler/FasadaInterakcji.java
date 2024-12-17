@@ -5,10 +5,19 @@ import Model.Model.Rola;
 import java.time.LocalTime;
 import java.util.Scanner;
 
+/**
+ * Klasa implementująca interfejs {@link InterakcjeZUzytkownikiem}.
+ * Odpowiada za interakcje z użytkownikiem i pobieranie od niego danych.
+ */
 public class FasadaInterakcji implements InterakcjeZUzytkownikiem {
 
 	private final Scanner scanner = new Scanner(System.in);
 
+	/**
+	 * Pobiera numer biletu od użytkownika.
+	 *
+	 * @return numer biletu
+	 */
 	@Override
 	public int podajNrBiletu() {
 		int nrBiletu = 0;
@@ -27,6 +36,11 @@ public class FasadaInterakcji implements InterakcjeZUzytkownikiem {
 		return nrBiletu;
 	}
 
+	/**
+	 * Pobiera od użytkownika informację, czy dane osoby są zgodne z danymi znajdującymi się na bilecie.
+	 *
+	 * @return true, jeśli dane są zgodne; false w przeciwnym razie
+	 */
 	@Override
 	public boolean zatwierdzZgodnoscOsoby() {
 		System.out.print("Czy dane osoby są zgodne? (tak/nie): ");
@@ -44,6 +58,11 @@ public class FasadaInterakcji implements InterakcjeZUzytkownikiem {
 		} while (true);
 	}
 
+	/**
+	 * Pobiera numer linii od użytkownika.
+	 *
+	 * @return numer linii
+	 */
 	@Override
 	public int podajNrLinii() {
 		int nrLinii = 0;
@@ -62,18 +81,33 @@ public class FasadaInterakcji implements InterakcjeZUzytkownikiem {
 		return nrLinii;
 	}
 
+	/**
+	 * Pobiera nazwę przystanku od użytkownika.
+	 *
+	 * @return nazwa przystanku
+	 */
 	@Override
 	public String podajNazwePrzystanku() {
 		System.out.print("Podaj nazwę przystanku: ");
 		return scanner.next();
 	}
 
+	/**
+	 * Pobiera numer rejestracyjny pojazdu.
+	 *
+	 * @return numer rejestracyjny pojazdu
+	 */
 	@Override
 	public String podajNrRejesstracyjny() {
 		System.out.print("Podaj numer rejestracyjny pojazdu: ");
 		return scanner.next();
 	}
 
+	/**
+	 * Pobiera godzinę odjazdu w formacie HH:mm.
+	 *
+	 * @return godzina odjazdu jako LocalTime
+	 */
 	@Override
 	public LocalTime podajGodzineOdjazdu() {
 		LocalTime godzinaOdjazdu = null;
@@ -92,6 +126,11 @@ public class FasadaInterakcji implements InterakcjeZUzytkownikiem {
 		return godzinaOdjazdu;
 	}
 
+	/**
+	 * Pobiera rolę użytkownika.
+	 *
+	 * @return rola użytkownika jako obiekt typu Rola
+	 */
 	public Rola podajSwojaRole() {
 		System.out.println("Wybierz swoją rolę:");
 		System.out.println("1 - Klient");
@@ -116,6 +155,11 @@ public class FasadaInterakcji implements InterakcjeZUzytkownikiem {
 		}
 	}
 
+	/**
+	 * Pobiera wybór użytkownika z menu.
+	 *
+	 * @return numer wybranej opcji
+	 */
 	@Override
 	public int podajWyborMenu() {
 		int wybor = -1;
@@ -138,6 +182,12 @@ public class FasadaInterakcji implements InterakcjeZUzytkownikiem {
 		return wybor;
 	}
 
+	/**
+	 * Pobiera liczbę elementów na podstawie podanego komunikatu.
+	 *
+	 * @param komunikat komunikat wyświetlany użytkownikowi
+	 * @return dodatnia liczba elementów
+	 */
 	@Override
 	public int podajIle(String komunikat) {
 		int liczba = 0;

@@ -3,32 +3,59 @@ package Model.Model;
 import java.time.LocalTime;
 import java.util.*;
 
+/**
+ * Klasa reprezentująca linię autobusową, zawierającą przystanki oraz przypisane pojazdy.
+ */
 public class LiniaAutobusowa {
 
-	private final int nrLinii; // Poprawione z nrLnii
+	private final int nrLinii;
 	private Collection<PrzystanekLinii> przystanki = new ArrayList<>();
 	private Collection<Pojazd> pojazdy = new ArrayList<>();
 
+	/**
+	 * Konstruktor klasy LiniaAutobusowa.
+	 *
+	 * @param nrLinii Numer linii autobusowej.
+	 */
 	public LiniaAutobusowa(int nrLinii) {
 		this.nrLinii = nrLinii;
 	}
 
+	/**
+	 * Zwraca numer linii autobusowej.
+	 *
+	 * @return Numer linii.
+	 */
 	public int getNrLinii() {
-
 		return nrLinii;
 	}
 
+	/**
+	 * Zwraca kolekcję przystanków przypisanych do linii.
+	 *
+	 * @return Kolekcja obiektów {@link PrzystanekLinii}.
+	 */
 	public Collection<PrzystanekLinii> getPrzystanki() {
 		return przystanki;
 	}
 
+	/**
+	 * Zwraca kolekcję pojazdów przypisanych do linii.
+	 *
+	 * @return Kolekcja obiektów {@link Pojazd}.
+	 */
 	public Collection<Pojazd> getPojazdy() {
 		return pojazdy;
 	}
 
+	/**
+	 * Dodaje przystanek do linii autobusowej.
+	 *
+	 * @param nazwaPrzystanku Nazwa przystanku do dodania.
+	 * @return {@code true} jeśli przystanek został dodany pomyślnie, w przeciwnym razie {@code false}.
+	 */
 	public boolean dodajPrzystanekDoLinii(String nazwaPrzystanku) {
 		if (nazwaPrzystanku != null && !nazwaPrzystanku.isEmpty()) {
-			Przystanek przystanek = new Przystanek(nazwaPrzystanku);
 			PrzystanekLinii przystanekLinii = new PrzystanekLinii(nazwaPrzystanku, this, new ArrayList<>());
 			if (!przystanki.contains(przystanekLinii)) {
 				przystanki.add(przystanekLinii);
@@ -38,6 +65,12 @@ public class LiniaAutobusowa {
 		return false;
 	}
 
+	/**
+	 * Wyszukuje przystanek o podanej nazwie w linii autobusowej.
+	 *
+	 * @param nazwaPrzystanku Nazwa przystanku do wyszukania.
+	 * @return Obiekt {@link PrzystanekLinii}, jeśli przystanek został znaleziony, w przeciwnym razie {@code null}.
+	 */
 	public PrzystanekLinii znajdzPrzystanek(String nazwaPrzystanku) {
 		if (nazwaPrzystanku == null || nazwaPrzystanku.isEmpty()) {
 			return null;
@@ -47,48 +80,47 @@ public class LiniaAutobusowa {
 				return przystanekLinii;
 			}
 		}
-		return null; // Jeśli nie znaleziono przystanku
+		return null;
 	}
 
-
-
-	public void dodajPojazdDoLinii(String nrRejestracyjny) {
+	/**
+	 * Dodaje pojazd do linii autobusowej.
+	 *
+	 * @param nrRejestracyjny Numer rejestracyjny pojazdu.
+	 * @return {@code true} jeśli pojazd został dodany pomyślnie, w przeciwnym razie {@code false}.
+	 */
+	public boolean dodajPojazdDoLinii(String nrRejestracyjny) {
 		if (nrRejestracyjny == null || nrRejestracyjny.isEmpty()) {
-			System.out.println("Numer rejestracyjny pojazdu nie może być pusty.");
-			return;
+			return false;
 		}
-		// Tworzenie nowego pojazdu za pomocą KreatoraPojazdow
 		KreatorPojazdow kreator = new KreatorPojazdow();
 		Pojazd nowyPojazd = kreator.stworzPojazd(nrRejestracyjny);
 
-		// Dodanie pojazdu do listy, jeśli nie istnieje
 		if (!pojazdy.contains(nowyPojazd)) {
 			pojazdy.add(nowyPojazd);
-			System.out.println("Dodano pojazd o numerze rejestracyjnym: " + nrRejestracyjny + " do linii: " + nrLinii);
-		} else {
-			System.out.println("Pojazd o numerze rejestracyjnym: " + nrRejestracyjny + " już istnieje w linii.");
+			return true;
 		}
+		return false;
 	}
 
-
-	public void dodajGodzinyOdjazdowPrzystanku(String nazwaPrzystanku, Collection<LocalTime> godzinyOdjazdow) {
+	/**
+	 * Dodaje godziny odjazdów dla konkretnego przystanku w linii autobusowej.
+	 *
+	 * @param nazwaPrzystanku Nazwa przystanku, dla którego dodawane są godziny.
+	 * @param godzinyOdjazdow Kolekcja godzin odjazdów {@link LocalTime}.
+	 * @return {@code true} jeśli godziny zostały dodane pomyślnie, w przeciwnym razie {@code false}.
+	 */
+	public boolean dodajGodzinyOdjazdowPrzystanku(String nazwaPrzystanku, Collection<LocalTime> godzinyOdjazdow) {
 		if (nazwaPrzystanku == null || godzinyOdjazdow == null || godzinyOdjazdow.isEmpty()) {
-			throw new IllegalArgumentException("Nazwa przystanku i godziny odjazdów nie mogą być puste.");
+			return false;
 		}
 
-		// Szukamy przystanku w kolekcji Przystanki
 		for (PrzystanekLinii przystanekLinii : przystanki) {
 			if (przystanekLinii.getPrzystanek().getNazwa().equals(nazwaPrzystanku)) {
-				// Ustawiamy godziny odjazdów dla znalezionego przystanku
 				przystanekLinii.setGodzinyOdjazdow(godzinyOdjazdow);
-				System.out.println("Godziny odjazdów zostały dodane dla przystanku: " + nazwaPrzystanku);
-				return;
+				return true;
 			}
 		}
-
-		// Jeśli nie znaleziono przystanku
-		System.out.println("Przystanek o nazwie '" + nazwaPrzystanku + "' nie istnieje w tej linii.");
+		return false;
 	}
-
-
 }

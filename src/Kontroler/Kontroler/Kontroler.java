@@ -15,8 +15,15 @@ public class Kontroler {
 	private ObslugaBiletow obslugaBiletow;
 	private InterakcjeZUzytkownikiem interakcjeZUzytkownikiem;
 
-	public Kontroler(ObslugaLinii obslugaLinii, ObslugaBiletow obslugaBiletow, WyswietlanieInformacji wyswietlanieInformacji,
-					 InterakcjeZUzytkownikiem interakcjeZUzytkownikiem) {
+	/**
+	 * Konstruktor klasy Kontroler.
+	 *
+	 * @param obslugaLinii           interfejs obsługi linii
+	 * @param obslugaBiletow         interfejs obsługi biletów
+	 * @param wyswietlanieInformacji interfejs do wyświetlania informacji
+	 * @param interakcjeZUzytkownikiem interfejs do interakcji z użytkownikiem
+	 */
+	public Kontroler(ObslugaLinii obslugaLinii, ObslugaBiletow obslugaBiletow, WyswietlanieInformacji wyswietlanieInformacji, InterakcjeZUzytkownikiem interakcjeZUzytkownikiem) {
 		this.obslugaLinii = obslugaLinii;
 		this.obslugaBiletow = obslugaBiletow;
 		this.wyswietlanieInformacji = wyswietlanieInformacji;
@@ -24,6 +31,9 @@ public class Kontroler {
 		this.kontekst = new Kontekst();
 	}
 
+	/**
+	 * Wyświetla menu główne aplikacji i obsługuje wybór użytkownika.
+	 */
 	public void pokazMenu() {
 		boolean running = true;
 		while (running) {
@@ -44,7 +54,7 @@ public class Kontroler {
 					sprawdzanieWaznosci();
 					break;
 				case 5:	//koniec
-					System.out.println("Zamykanie aplikacji...");
+					wyswietlanieInformacji.wyswietlInformacje("Zamykanie aplikacji...");
 					running = false;
 					break;
 				default:
@@ -53,67 +63,81 @@ public class Kontroler {
 		}
 	}
 
+	/**
+	 * Dodaje nową linię autobusową, pojazdy oraz przystanki wraz z godzinami odjazdów.
+	 */
 	public void dodawanieLinii() {
-		System.out.println("--- Dodawanie nowej linii autobusowej ---");
-		// Pobranie numeru linii
+		wyswietlanieInformacji.wyswietlInformacje("--- Dodawanie nowej linii autobusowej ---");
+
 		int nrLinii = interakcjeZUzytkownikiem.podajNrLinii();
 
-		// Dodanie linii autobusowej do systemu
-		obslugaLinii.dodajLinie(nrLinii);
-		LiniaAutobusowa nowaLinia = obslugaLinii.znajdzLinie(nrLinii);
+		boolean liniaDodana = obslugaLinii.dodajLinie(nrLinii);
 
-		if (nowaLinia != null) {
-			// Dodanie pojazdów
-			int liczbaPojazdow = interakcjeZUzytkownikiem.podajIle("Ile pojazdów chcesz dodać do linii? "); // Wykorzystując metodę jako input liczbowy
+		if (liniaDodana) {
+			LiniaAutobusowa nowaLinia = obslugaLinii.znajdzLinie(nrLinii);
+
+			int liczbaPojazdow = interakcjeZUzytkownikiem.podajIle("Ile pojazdów chcesz dodać do linii? ");
 			for (int i = 0; i < liczbaPojazdow; i++) {
 				String nrRejestracyjny = interakcjeZUzytkownikiem.podajNrRejesstracyjny();
-				nowaLinia.dodajPojazdDoLinii(nrRejestracyjny);
+				boolean pojazdDodany = nowaLinia.dodajPojazdDoLinii(nrRejestracyjny);
+				if (pojazdDodany) {
+					wyswietlanieInformacji.wyswietlPowodzenie("Dodano pojazd o numerze rejestracyjnym: " + nrRejestracyjny);
+				} else {
+					wyswietlanieInformacji.wyswietlBlad("Pojazd o numerze rejestracyjnym \"" + nrRejestracyjny + "\" już istnieje.");
+				}
 			}
 
-			// Dodanie przystanków
 			int liczbaPrzystankow = interakcjeZUzytkownikiem.podajIle("Ile przystanków chcesz dodać do linii? ");
 			for (int i = 0; i < liczbaPrzystankow; i++) {
 				String nazwaPrzystanku = interakcjeZUzytkownikiem.podajNazwePrzystanku();
 				boolean przystanekDodany = nowaLinia.dodajPrzystanekDoLinii(nazwaPrzystanku);
+
 				if (przystanekDodany) {
-					// Ustawianie godzin odjazdów
+					wyswietlanieInformacji.wyswietlPowodzenie("Dodano przystanek: " + nazwaPrzystanku);
+
+					// Ustawianie godzin odjazdów dla przystanku
 					int liczbaGodzin = interakcjeZUzytkownikiem.podajIle("Ile godzin odjazdów chcesz dodać dla przystanku \"" + nazwaPrzystanku + "\"? ");
 					Collection<LocalTime> godzinyOdjazdow = new ArrayList<>();
 					for (int j = 0; j < liczbaGodzin; j++) {
 						LocalTime godzina = interakcjeZUzytkownikiem.podajGodzineOdjazdu();
 						godzinyOdjazdow.add(godzina);
 					}
-					nowaLinia.dodajGodzinyOdjazdowPrzystanku(nazwaPrzystanku, godzinyOdjazdow);
+					boolean godzinyDodane = nowaLinia.dodajGodzinyOdjazdowPrzystanku(nazwaPrzystanku, godzinyOdjazdow);
+					if (godzinyDodane) {
+						wyswietlanieInformacji.wyswietlPowodzenie("Dodano godziny odjazdów dla przystanku: " + nazwaPrzystanku);
+					} else {
+						wyswietlanieInformacji.wyswietlBlad("Nie udało się dodać godzin odjazdów dla przystanku: " + nazwaPrzystanku);
+					}
 				} else {
-					wyswietlanieInformacji.wyswietlBlad("Przystanek \"" + nazwaPrzystanku + "\" już istnieje.");
+					wyswietlanieInformacji.wyswietlBlad("Przystanek \"" + nazwaPrzystanku + "\" już istnieje w tej linii.");
 				}
 			}
 			wyswietlanieInformacji.wyswietlPowodzenie("Linia autobusowa nr " + nrLinii + " została pomyślnie utworzona i skonfigurowana.");
 		} else {
-			wyswietlanieInformacji.wyswietlBlad("Nie udało się dodać linii autobusowej.");
+			wyswietlanieInformacji.wyswietlBlad("Linia autobusowa o numerze \"" + nrLinii + "\" już istnieje.");
 		}
 	}
 
-
+	/**
+	 * Wyświetla informacje o linii autobusowej.
+	 */
 	public void informacjeLinia() {
-		System.out.println("--- Wyświetlanie informacji o linii autobusowej ---");
-
-		// Pobieranie numeru linii od użytkownika
+		wyswietlanieInformacji.wyswietlInformacje("--- Wyświetlanie informacji o linii autobusowej ---");
 		int nrLinii = interakcjeZUzytkownikiem.podajNrLinii();
-
-		// Wyszukiwanie linii autobusowej
 		LiniaAutobusowa linia = obslugaLinii.znajdzLinie(nrLinii);
 
 		if (linia != null) {
-			// Wyświetlenie informacji o linii za pomocą WyswietlanieInformacji
 			wyswietlanieInformacji.wyswietlInfoLinia(linia);
 		} else {
 			wyswietlanieInformacji.wyswietlBlad("Linia o numerze " + nrLinii + " nie istnieje.");
 		}
 	}
 
+	/**
+	 * Wyświetla informacje o przystanku w linii autobusowej.
+	 */
 	public void informacjePrzystanek() {
-		System.out.println("--- Wyświetlanie informacji o przystanku w linii autobusowej ---");
+		wyswietlanieInformacji.wyswietlInformacje("--- Wyświetlanie informacji o przystanku w linii autobusowej ---");
 
 		int nrLinii = interakcjeZUzytkownikiem.podajNrLinii();
 		LiniaAutobusowa linia = obslugaLinii.znajdzLinie(nrLinii);
@@ -132,7 +156,9 @@ public class Kontroler {
 		}
 	}
 
-
+	/**
+	 * Sprawdza ważność biletu na podstawie wybranej strategii.
+	 */
 	public void sprawdzanieWaznosci() {
 		// Pobieranie roli użytkownika
 		Rola rolaUzytkownika = interakcjeZUzytkownikiem.podajSwojaRole();
@@ -151,7 +177,7 @@ public class Kontroler {
 				kontekst.setStrategia(new StrategiaSprawdzaniaKontrolera(wyswietlanieInformacji));
 				break;
 			default:
-				System.out.println("Brak możliwości sprawdzenia biletów dla roli: " + rolaUzytkownika);
+				wyswietlanieInformacji.wyswietlInformacje("Brak możliwości sprawdzenia biletów dla roli: " + rolaUzytkownika);
 				return;
 		}
 
@@ -161,6 +187,7 @@ public class Kontroler {
 
 
 	/**
+	 * Główna metoda uruchamiająca program.
 	 *
 	 * @param args
 	 */
@@ -170,13 +197,10 @@ public class Kontroler {
 		ObslugaLinii obslugaLinii = new FasadaLinii();
 		ObslugaBiletow obslugaBiletow = new FasadaBiletow();
 
-		// Dodanie przykładowych biletów
 		obslugaBiletow.dodajPrzykladoweBilety();
 
-		// Tworzenie kontrolera z wymaganymi zależnościami
 		Kontroler kontroler = new Kontroler(obslugaLinii, obslugaBiletow, widok, interakcje);
 
-		// Uruchomienie menu aplikacji
 		kontroler.pokazMenu();
 	}
 

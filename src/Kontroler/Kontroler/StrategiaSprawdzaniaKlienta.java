@@ -3,33 +3,45 @@ package Kontroler.Kontroler;
 import Model.Model.*;
 import Widok.Widok.*;
 
+/**
+ * Klasa implementująca interfejs {@link StrategiaSprawdzaniaBiletow}.
+ * Klasa implementująca strategię sprawdzania ważności biletu dla klienta.
+ */
 public class StrategiaSprawdzaniaKlienta implements StrategiaSprawdzaniaBiletow {
 
 	private final WyswietlanieInformacji wyswietlanieInformacji;
 
-	// Konstruktor do przekazania obiektu WyswietlanieInformacji
+	/**
+	 * Konstruktor klasy StrategiaSprawdzaniaKlienta.
+	 *
+	 * @param wyswietlanieInformacji interfejs do wyświetlania informacji
+	 */
 	public StrategiaSprawdzaniaKlienta(WyswietlanieInformacji wyswietlanieInformacji) {
 		this.wyswietlanieInformacji = wyswietlanieInformacji;
 	}
 
+	/**
+	 * Wykonuje strategię sprawdzania ważności biletu.
+	 *
+	 * @param interakcjeZUzytkownikiem interfejs do interakcji z użytkownikiem
+	 * @param obslugaBiletow           interfejs do obsługi biletów
+	 */
 	@Override
 	public void wykonajStrategie(InterakcjeZUzytkownikiem interakcjeZUzytkownikiem, ObslugaBiletow obslugaBiletow) {
-		System.out.println("Strategia dla Klienta: Sprawdzanie biletu...");
+		wyswietlanieInformacji.wyswietlInformacje("Strategia dla Klienta: Sprawdzanie biletu...");
 
-		// Pobieranie numeru biletu od użytkownika
 		int nrBiletu = interakcjeZUzytkownikiem.podajNrBiletu();
 		Bilet bilet = obslugaBiletow.pobierzBilet(nrBiletu);
 
 		if (bilet != null) {
-			// Sprawdzenie ważności biletu
 			boolean czyWazny = obslugaBiletow.sprawdzWaznosc(nrBiletu);
 			wyswietlanieInformacji.wyswietlInfoWaznoscBiletu(czyWazny);
 
 			if (czyWazny) {
-				System.out.println("Bilet ważny do: " + bilet.getDataWaznosci());
+				wyswietlanieInformacji.wyswietlInformacje("Bilet ważny do: " + bilet.getDataWaznosci());
 			}
 		} else {
-			System.out.println("Bilet nr " + nrBiletu + " nie istnieje.");
+			wyswietlanieInformacji.wyswietlBlad("Bilet nr " + nrBiletu + " nie istnieje.");
 		}
 	}
 }

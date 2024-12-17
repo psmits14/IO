@@ -1,4 +1,9 @@
 package Model.Model;
+
+/**
+ * Klasa reprezentująca osobę w systemie.
+ * Zawiera informacje takie jak imię, nazwisko, numer PESEL, numer dokumentu i rolę użytkownika.
+ */
 public class Osoba {
 
 	private String Imie = "";
@@ -7,6 +12,15 @@ public class Osoba {
 	private String NrDokumentu = "";
 	private Rola Rola = Model.Model.Rola.Klient;
 
+	/**
+	 * Konstruktor klasy Osoba.
+	 *
+	 * @param imie        Imię osoby.
+	 * @param nazwisko    Nazwisko osoby.
+	 * @param pesel       Numer PESEL osoby.
+	 * @param nrDokumentu Numer dokumentu tożsamości osoby.
+	 * @param rola        Rola przypisana osobie {@link Rola}.
+	 */
 	public Osoba(String imie, String nazwisko, int pesel, String nrDokumentu, Rola rola) {
 		this.Imie = imie;
 		this.Nazwisko = nazwisko;
@@ -15,42 +29,92 @@ public class Osoba {
 		this.Rola = rola;
 	}
 
+	/**
+	 * Zwraca imię osoby.
+	 *
+	 * @return Imię osoby.
+	 */
 	public String getImie() {
 		return Imie;
 	}
 
+	/**
+	 * Ustawia imię osoby.
+	 *
+	 * @param imie Nowe imię osoby.
+	 */
 	public void setImie(String imie) {
 		this.Imie = imie;
 	}
 
+	/**
+	 * Zwraca nazwisko osoby.
+	 *
+	 * @return Nazwisko osoby.
+	 */
 	public String getNazwisko() {
 		return Nazwisko;
 	}
 
+	/**
+	 * Ustawia nazwisko osoby.
+	 *
+	 * @param nazwisko Nowe nazwisko osoby.
+	 */
 	public void setNazwisko(String nazwisko) {
 		this.Nazwisko = nazwisko;
 	}
 
+	/**
+	 * Zwraca numer PESEL osoby.
+	 *
+	 * @return Numer PESEL osoby.
+	 */
 	public int getPesel() {
 		return Pesel;
 	}
 
+	/**
+	 * Ustawia numer PESEL osoby.
+	 *
+	 * @param pesel Nowy numer PESEL osoby.
+	 */
 	public void setPesel(int pesel) {
 		this.Pesel = pesel;
 	}
 
+	/**
+	 * Zwraca numer dokumentu tożsamości osoby.
+	 *
+	 * @return Numer dokumentu tożsamości.
+	 */
 	public String getNrDokumentu() {
 		return NrDokumentu;
 	}
 
+	/**
+	 * Ustawia numer dokumentu tożsamości osoby.
+	 *
+	 * @param nrDokumentu Nowy numer dokumentu tożsamości.
+	 */
 	public void setNrDokumentu(String nrDokumentu) {
 		this.NrDokumentu = nrDokumentu;
 	}
 
+	/**
+	 * Zwraca rolę przypisaną osobie.
+	 *
+	 * @return Rola osoby {@link Rola}.
+	 */
 	public Rola getRola() {
 		return Rola;
 	}
 
+	/**
+	 * Ustawia rolę osoby.
+	 *
+	 * @param rola Nowa rola osoby {@link Rola}.
+	 */
 	public void setRola(Rola rola) {
 		this.Rola = rola;
 	}

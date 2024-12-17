@@ -4,35 +4,59 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collection;
 
+/**
+ * Klasa implementująca interfejs {@link ObslugaBiletow}.
+ * Zarządza kolekcją biletów oraz umożliwia sprawdzanie ich ważności i pobieranie.
+ */
 public class FasadaBiletow implements ObslugaBiletow {
 
-	private Collection<Bilet> Bilety = new ArrayList<>();
+	private Collection<Bilet> Bilety = new ArrayList<>(); // Kolekcja przechowująca bilety
 
+	/**
+	 * Sprawdza ważność biletu na podstawie jego numeru.
+	 *
+	 * @param nrBiletu Numer biletu do sprawdzenia.
+	 * @return True, jeśli bilet jest ważny; false w przeciwnym przypadku.
+	 */
 	public boolean sprawdzWaznosc(int nrBiletu) {
 		for (Bilet bilet : Bilety) {
 			if (bilet.SprawdzWaznosc(nrBiletu)) {
-				return true; // Bilet jest ważny
+				return true;
 			}
 		}
-		return false; // Nie znaleziono ważnego biletu
+		return false;
 	}
 
+	/**
+	 * Pobiera bilet na podstawie jego numeru.
+	 *
+	 * @param nrBiletu Numer biletu do pobrania.
+	 * @return Obiekt {@link Bilet}, jeśli istnieje; null, jeśli bilet o podanym numerze nie istnieje.
+	 */
 	@Override
 	public Bilet pobierzBilet(int nrBiletu) {
 		for (Bilet bilet : Bilety) {
 			if (bilet.getNrBiletu() == nrBiletu) {
-				return bilet; // Zwraca bilet o podanym numerze
+				return bilet;
 			}
 		}
-		return null; // Jeśli bilet o podanym numerze nie istnieje
+		return null;
 	}
 
+	/**
+	 * Dodaje nowy bilet do kolekcji.
+	 *
+	 * @param bilet Obiekt {@link Bilet}, który ma zostać dodany.
+	 */
 	public void dodajBilet(Bilet bilet) {
 		if (bilet != null) {
 			Bilety.add(bilet);
 		}
 	}
 
+	/**
+	 * Dodaje przykładowe bilety do kolekcji na potrzeby testowania.
+	 */
 	public void dodajPrzykladoweBilety() {
 
 		// Przykładowe bilety
@@ -47,6 +71,5 @@ public class FasadaBiletow implements ObslugaBiletow {
 		dodajBilet(bilet3);
 		dodajBilet(bilet4);
 
-		System.out.println("Przykładowe bilety zostały dodane do systemu.");
 	}
 }

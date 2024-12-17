@@ -33,4 +33,6 @@ public interface WyswietlanieInformacji {
 	void wyswietlBlad(String komunikat);
 
 	void wyswietlPowodzenie(String komunikat);
+
+	void wyswietlInformacje(String komunikat);
 }
