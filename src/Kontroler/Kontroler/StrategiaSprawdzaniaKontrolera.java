@@ -7,16 +7,13 @@ public class StrategiaSprawdzaniaKontrolera implements StrategiaSprawdzaniaBilet
 
 	private WyswietlanieInformacji wyswietlanieInformacji;
 
-	public StrategiaSprawdzaniaKontrolera(WyswietlanieInformacji wyswietlanieInformacji) {
-		this.wyswietlanieInformacji = wyswietlanieInformacji;
-	}
 
 	@Override
-	public void wykonajStrategie(FasadaInterakcji fasadaInterakcji, ObslugaBiletow obslugaBiletow) {
+	public void wykonajStrategie(InterakcjeZUzytkownikiem interakcje, ObslugaBiletow obslugaBiletow) {
 		System.out.println("Strategia dla Kontrolera: Dokładne sprawdzanie biletu...");
 
 		// Pobieranie numeru biletu od użytkownika
-		int nrBiletu = fasadaInterakcji.podajNrBiletu();
+		int nrBiletu = interakcje.podajNrBiletu();
 		Bilet bilet = obslugaBiletow.pobierzBilet(nrBiletu);
 
 		if (bilet != null && obslugaBiletow.sprawdzWaznosc(nrBiletu)) {
@@ -28,7 +25,7 @@ public class StrategiaSprawdzaniaKontrolera implements StrategiaSprawdzaniaBilet
 				wyswietlanieInformacji.wyswietlDaneDoWeryfikacji(osoba);
 
 				// Weryfikacja zgodności danych
-				if (fasadaInterakcji.zatwierdzZgodnoscOsoby()) {
+				if (interakcje.zatwierdzZgodnoscOsoby()) {
 					System.out.println("Zgodność danych została potwierdzona.");
 				} else {
 					System.out.println("Zgodność danych nie została potwierdzona. Bilet jest nieważny.");

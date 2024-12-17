@@ -77,7 +77,7 @@ public class Kontroler {
 					strategia = new StrategiaSprawdzaniaKlienta();
 					break;
 				case Kontroler_biletow:
-					strategia = new StrategiaSprawdzaniaKontrolera(new FasadaFabrykaWidoku());
+					strategia = new StrategiaSprawdzaniaKontrolera();
 					break;
 				default:
 					System.out.println("Brak strategii dla roli: " + rolaUzytkownika);
