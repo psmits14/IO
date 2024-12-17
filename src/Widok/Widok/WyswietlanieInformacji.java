@@ -20,9 +20,9 @@ public interface WyswietlanieInformacji {
 
 	/**
 	 * 
-	 * @param bilet
+	 * @param waznosc
 	 */
-	void wyswietlInfoWaznoscBiletu(Bilet bilet);
+	void wyswietlInfoWaznoscBiletu(boolean waznosc);
 
 	/**
 	 * 

@@ -149,10 +149,10 @@ public class Kontroler {
 
 		switch (rolaUzytkownika) {
 			case Klient:
-				kontekst.setStrategia(new StrategiaSprawdzaniaKlienta());
+				kontekst.setStrategia(new StrategiaSprawdzaniaKlienta(wyswietlanieInformacji));
 				break;
 			case Kontroler_biletow:
-				kontekst.setStrategia(new StrategiaSprawdzaniaKontrolera());
+				kontekst.setStrategia(new StrategiaSprawdzaniaKontrolera(wyswietlanieInformacji));
 				break;
 			default:
 				System.out.println("Brak strategii dla roli: " + rolaUzytkownika);

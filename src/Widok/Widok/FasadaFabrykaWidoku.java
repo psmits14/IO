@@ -53,13 +53,12 @@ public class FasadaFabrykaWidoku implements WyswietlanieInformacji {
 
 
 	@Override
-	public void wyswietlInfoWaznoscBiletu(Bilet bilet) {
-		if (bilet != null) {
-			boolean wazny = bilet.SprawdzWaznosc(bilet.getNrBiletu());
-			System.out.println("Bilet nr " + bilet.getNrBiletu() + " jest " +
-					(wazny ? "ważny." : "nieważny."));
-		} else {
-			System.out.println("Bilet nie istnieje.");
+	public void wyswietlInfoWaznoscBiletu(boolean waznosc) {
+		if (waznosc == true){
+			System.out.println("Bilet jest wazny");
+		}
+		else {
+			System.out.println("Bilet jest niewazny");
 		}
 	}
 

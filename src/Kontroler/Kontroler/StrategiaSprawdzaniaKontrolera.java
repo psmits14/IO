@@ -5,8 +5,12 @@ import Model.Model.*;
 
 public class StrategiaSprawdzaniaKontrolera implements StrategiaSprawdzaniaBiletow {
 
-	private WyswietlanieInformacji wyswietlanieInformacji;
+	private final WyswietlanieInformacji wyswietlanieInformacji;
 
+	// Konstruktor przyjmujący WyswietlanieInformacji
+	public StrategiaSprawdzaniaKontrolera(WyswietlanieInformacji wyswietlanieInformacji) {
+		this.wyswietlanieInformacji = wyswietlanieInformacji;
+	}
 
 	@Override
 	public void wykonajStrategie(InterakcjeZUzytkownikiem interakcjeZUzytkownikiem, ObslugaBiletow obslugaBiletow) {
@@ -16,26 +20,32 @@ public class StrategiaSprawdzaniaKontrolera implements StrategiaSprawdzaniaBilet
 		int nrBiletu = interakcjeZUzytkownikiem.podajNrBiletu();
 		Bilet bilet = obslugaBiletow.pobierzBilet(nrBiletu);
 
-		if (bilet != null && obslugaBiletow.sprawdzWaznosc(nrBiletu)) {
-			System.out.println("Bilet nr " + nrBiletu + " jest ważny.");
+		if (bilet != null) {
+			boolean czyWazny = obslugaBiletow.sprawdzWaznosc(nrBiletu);
 
-			// Wyświetlanie danych osoby przypisanej do biletu
-			Osoba osoba = bilet.getOsoba();
-			if (osoba != null) {
-				wyswietlanieInformacji.wyswietlDaneDoWeryfikacji(osoba);
+			// Użycie metody wyswietlInfoWaznoscBiletu
+			wyswietlanieInformacji.wyswietlInfoWaznoscBiletu(czyWazny);
 
-				// Weryfikacja zgodności danych
-				if (interakcjeZUzytkownikiem.zatwierdzZgodnoscOsoby()) {
-					System.out.println("Zgodność danych została potwierdzona.");
+			// Dodatkowa logika dla biletów imiennych
+			if (bilet.getImiennosc()) {
+				System.out.println("Bilet jest imienny. Weryfikacja danych osoby...");
+
+				Osoba osoba = bilet.getOsoba();
+				if (osoba != null) {
+					wyswietlanieInformacji.wyswietlDaneDoWeryfikacji(osoba);
+
+					// Weryfikacja zgodności danych
+					if (interakcjeZUzytkownikiem.zatwierdzZgodnoscOsoby()) {
+						System.out.println("Zgodność danych została potwierdzona.");
+					} else {
+						System.out.println("Zgodność danych nie została potwierdzona. Bilet jest nieważny. Wystawianie mandatu.");
+					}
 				} else {
-					System.out.println("Zgodność danych nie została potwierdzona. Bilet jest nieważny.");
+					System.out.println("Brak danych osoby przypisanej do biletu.");
 				}
-			} else {
-				System.out.println("Brak danych osoby przypisanej do biletu.");
 			}
 		} else {
-			System.out.println("Bilet nr " + nrBiletu + " jest nieważny lub nie istnieje.");
-			System.out.println("Proszę o przedstawienie ważnego biletu.");
+			System.out.println("Bilet nr " + nrBiletu + " nie istnieje. Proszę o przedstawienie ważnego biletu, inaczej konieczne bedzie wystawienie mandatu");
 		}
 	}
 }
