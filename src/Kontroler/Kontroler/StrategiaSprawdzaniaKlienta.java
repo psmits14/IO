@@ -6,10 +6,10 @@ import Model.Model.*;
 public class StrategiaSprawdzaniaKlienta implements StrategiaSprawdzaniaBiletow {
 
 	@Override
-	public void wykonajStrategie(InterakcjeZUzytkownikiem interakcje, ObslugaBiletow obslugaBiletow) {
+	public void wykonajStrategie(FasadaInterakcji fasadaInterakcji, ObslugaBiletow obslugaBiletow) {
 		System.out.println("Strategia dla Klienta: Sprawdzanie biletu...");
 
-		int nrBiletu = interakcje.podajNrBiletu();
+		int nrBiletu = fasadaInterakcji.podajNrBiletu();
 		Bilet bilet = obslugaBiletow.pobierzBilet(nrBiletu);
 
 		if (bilet != null && obslugaBiletow.sprawdzWaznosc(nrBiletu)) {

@@ -3,6 +3,8 @@ package Kontroler.Kontroler;
 import Model.Model.Rola;
 import Widok.Widok.*;
 
+import java.time.LocalTime;
+
 public class Kontroler {
 
 	private WyswietlanieInformacji wyswietlenieInformacji;
@@ -35,25 +37,29 @@ public class Kontroler {
 	}
 
 	public int podajNrBiletu() {
-		// TODO - implement Kontroler.podajNrBiletu
-		return 0;
+		return interakcje.podajNrBiletu();
 	}
 
 	public int podajNrLinii() {
-		// TODO - implement Kontroler.podajNrLinii
-		return 0;
+		return interakcje.podajNrLinii();
 	}
 
 	public void podajGodzineOdjazdu() {
-		// TODO - implement Kontroler.podajGodzineOdjazdu
+		LocalTime godzina = interakcje.podajGodzineOdjazdu();
+		System.out.println("Godzina odjazdu: " + godzina);
 	}
 
 	public void podajNazwePrzystanku() {
-		// TODO - implement Kontroler.podajNazwePrzystanku
+		String przystanek = interakcje.podajNazwePrzystanku();
+		System.out.println("Nazwa przystanku: " + przystanek);
 	}
 
-	public void podajNrRejesstracyjny() {
-		// TODO - implement Kontroler.podajNrRejesstracyjny
+	/**
+	 * Pobiera numer rejestracyjny pojazdu.
+	 */
+	public void podajNrRejestracyjny() {
+		String nrRejestracyjny = interakcje.podajNrRejesstracyjny();
+		System.out.println("Numer rejestracyjny: " + nrRejestracyjny);
 	}
 
 	/**
@@ -67,7 +73,7 @@ public class Kontroler {
 
 	public void wybierzStrategieSprawdzaniaBiletow() {
 		// Pobieranie roli użytkownika
-		Rola rolaUzytkownika = interakcje.podajSwojaRole();
+		Rola rolaUzytkownika = fasadaInterakcji.podajSwojaRole();
 
 		// Wybór strategii na podstawie roli
 		if (rolaUzytkownika == null) {
@@ -88,7 +94,7 @@ public class Kontroler {
 		}
 
 		// Przekazanie zależności do strategii i jej wykonanie
-		kontekst.wykonajStrategie(interakcje, obslugaBiletow);
+		kontekst.wykonajStrategie(fasadaInterakcji, obslugaBiletow);
 	}
 
 
