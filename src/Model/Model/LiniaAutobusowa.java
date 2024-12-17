@@ -22,6 +22,10 @@ public class LiniaAutobusowa {
 		return przystanki;
 	}
 
+	public Collection<Pojazd> getPojazdy() {
+		return pojazdy;
+	}
+
 	public boolean dodajPrzystanekDoLinii(String nazwaPrzystanku) {
 		if (nazwaPrzystanku != null && !nazwaPrzystanku.isEmpty()) {
 			Przystanek przystanek = new Przystanek(nazwaPrzystanku);
@@ -33,6 +37,20 @@ public class LiniaAutobusowa {
 		}
 		return false;
 	}
+
+	public PrzystanekLinii znajdzPrzystanek(String nazwaPrzystanku) {
+		if (nazwaPrzystanku == null || nazwaPrzystanku.isEmpty()) {
+			return null;
+		}
+		for (PrzystanekLinii przystanekLinii : przystanki) {
+			if (przystanekLinii.getPrzystanek().getNazwa().equalsIgnoreCase(nazwaPrzystanku)) {
+				return przystanekLinii;
+			}
+		}
+		return null; // Jeśli nie znaleziono przystanku
+	}
+
+
 
 	public void dodajPojazdDoLinii(String nrRejestracyjny) {
 		if (nrRejestracyjny == null || nrRejestracyjny.isEmpty()) {

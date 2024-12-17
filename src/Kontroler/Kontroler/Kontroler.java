@@ -5,6 +5,10 @@ import Model.Model.ObslugaLinii;
 import Model.Model.*;
 import Widok.Widok.*;
 
+import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.Collection;
+
 public class Kontroler {
 
 	private WyswietlanieInformacji wyswietlanieInformacji;
@@ -26,7 +30,6 @@ public class Kontroler {
 		boolean running = true;
 		while (running) {
 			wyswietlanieInformacji.wyswietlOpcje();
-			System.out.print("Wybierz opcję: ");
 			int opcja = interakcjeZUzytkownikiem.podajWyborMenu(); // Wykorzystanie metody do pobrania liczby
 
 			switch (opcja) {
@@ -47,97 +50,94 @@ public class Kontroler {
 					running = false;
 					break;
 				default:
-					System.out.println("Nieprawidłowa opcja. Spróbuj ponownie.");
+					wyswietlanieInformacji.wyswietlBlad("Nieprawidłowa opcja. ");
 			}
 		}
 	}
 
 
 
-	public void dodawanieLinii(){
+	public void dodawanieLinii() {
+		System.out.println("--- Dodawanie nowej linii autobusowej ---");
+		// Pobranie numeru linii
+		int nrLinii = interakcjeZUzytkownikiem.podajNrLinii();
 
-	}
+		// Dodanie linii autobusowej do systemu
+		obslugaLinii.dodajLinie(nrLinii);
+		LiniaAutobusowa nowaLinia = obslugaLinii.znajdzLinie(nrLinii);
 
-	public void informacjeLinia(){
+		if (nowaLinia != null) {
+			// Dodanie pojazdów
+			int liczbaPojazdow = interakcjeZUzytkownikiem.podajIle("Ile pojazdów chcesz dodać do linii? "); // Wykorzystując metodę jako input liczbowy
+			for (int i = 0; i < liczbaPojazdow; i++) {
+				String nrRejestracyjny = interakcjeZUzytkownikiem.podajNrRejesstracyjny();
+				nowaLinia.dodajPojazdDoLinii(nrRejestracyjny);
+			}
 
-	}
-
-	public void informacjePrzystanek(){
-
-	}
-
-	public void sprawdzanieWaznosci(){
-
-	}
-
-
-
-	/**
-	 *
-	 * @param nrBiletu
-	 */
-	public boolean sprawdzWaznoscBiletu(int nrBiletu) {
-		// TODO - implement Kontroler.sprawdzWaznoscBiletu
-		return false;
-	}
-
-	/**
-	 *
-	 * @param nrLinii
-	 */
-	public void dodajLinie(int nrLinii) {
-		// TODO - implement Kontroler.dodajLinie
-	}
-
-	public boolean zatwierdzZgodnoscOsoby() {
-		// TODO - implement Kontroler.zatwierdzZgodnoscOsoby
-		return false;
-	}
-
-	public int podajNrBiletu() {
-		// TODO - implement Kontroler.podajNrBiletu
-		return 0;
-	}
-
-	public int podajNrLinii() {
-		// TODO - implement Kontroler.podajNrLinii
-		return 0;
-	}
-
-	public void podajGodzineOdjazdu() {
-		// TODO - implement Kontroler.podajGodzineOdjazdu
-	}
-
-	public void podajNazwePrzystanku() {
-		// TODO - implement Kontroler.podajNazwePrzystanku
-	}
-
-	/**
-	 * Pobiera numer rejestracyjny pojazdu.
-	 */
-	public void podajNrRejestracyjny() {
-
-	}
-
-	/**
-	 *
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		InterakcjeZUzytkownikiem interakcje = new FasadaInterakcji();
-		WyswietlanieInformacji widok = new FasadaFabrykaWidoku(interakcje);
-		ObslugaLinii obslugaLinii = new FasadaLinii();
-		ObslugaBiletow obslugaBiletow = new FasadaBiletow();
-
-		// Tworzenie kontrolera z wymaganymi zależnościami
-		Kontroler kontroler = new Kontroler(obslugaLinii, obslugaBiletow, widok, interakcje);
-
-		// Uruchomienie menu aplikacji
-		kontroler.pokazMenu();
+			// Dodanie przystanków
+			int liczbaPrzystankow = interakcjeZUzytkownikiem.podajIle("Ile przystanków chcesz dodać do linii? ");
+			for (int i = 0; i < liczbaPrzystankow; i++) {
+				String nazwaPrzystanku = interakcjeZUzytkownikiem.podajNazwePrzystanku();
+				boolean przystanekDodany = nowaLinia.dodajPrzystanekDoLinii(nazwaPrzystanku);
+				if (przystanekDodany) {
+					// Ustawianie godzin odjazdów
+					int liczbaGodzin = interakcjeZUzytkownikiem.podajIle("Ile godzin odjazdów chcesz dodać dla przystanku \"" + nazwaPrzystanku + "\"? ");
+					Collection<LocalTime> godzinyOdjazdow = new ArrayList<>();
+					for (int j = 0; j < liczbaGodzin; j++) {
+						LocalTime godzina = interakcjeZUzytkownikiem.podajGodzineOdjazdu();
+						godzinyOdjazdow.add(godzina);
+					}
+					nowaLinia.dodajGodzinyOdjazdowPrzystanku(nazwaPrzystanku, godzinyOdjazdow);
+				} else {
+					wyswietlanieInformacji.wyswietlBlad("Przystanek \"" + nazwaPrzystanku + "\" już istnieje.");
+				}
+			}
+			wyswietlanieInformacji.wyswietlPowodzenie("Linia autobusowa nr " + nrLinii + " została pomyślnie utworzona i skonfigurowana.");
+		} else {
+			wyswietlanieInformacji.wyswietlBlad("Nie udało się dodać linii autobusowej.");
+		}
 	}
 
 
-	public void wybierzStrategieSprawdzaniaBiletow() {
+	public void informacjeLinia() {
+		System.out.println("--- Wyświetlanie informacji o linii autobusowej ---");
+
+		// Pobieranie numeru linii od użytkownika
+		int nrLinii = interakcjeZUzytkownikiem.podajNrLinii();
+
+		// Wyszukiwanie linii autobusowej
+		LiniaAutobusowa linia = obslugaLinii.znajdzLinie(nrLinii);
+
+		if (linia != null) {
+			// Wyświetlenie informacji o linii za pomocą WyswietlanieInformacji
+			wyswietlanieInformacji.wyswietlInfoLinia(linia);
+		} else {
+			wyswietlanieInformacji.wyswietlBlad("Linia o numerze " + nrLinii + " nie istnieje.");
+		}
+	}
+
+	public void informacjePrzystanek() {
+		System.out.println("--- Wyświetlanie informacji o przystanku w linii autobusowej ---");
+
+		int nrLinii = interakcjeZUzytkownikiem.podajNrLinii();
+		LiniaAutobusowa linia = obslugaLinii.znajdzLinie(nrLinii);
+
+		if (linia != null) {
+			String nazwaPrzystanku = interakcjeZUzytkownikiem.podajNazwePrzystanku();
+			PrzystanekLinii przystanek = linia.znajdzPrzystanek(nazwaPrzystanku);
+
+			if (przystanek != null) {
+				wyswietlanieInformacji.wyswietlInfoPrzystanek(przystanek);
+			} else {
+				wyswietlanieInformacji.wyswietlBlad("Przystanek \"" + nazwaPrzystanku + "\" nie istnieje w linii nr " + nrLinii + ".");
+			}
+		} else {
+			wyswietlanieInformacji.wyswietlBlad("Linia o numerze " + nrLinii + " nie istnieje.");
+		}
+	}
+
+
+	public void sprawdzanieWaznosci() {
 		// Pobieranie roli użytkownika
 		Rola rolaUzytkownika = interakcjeZUzytkownikiem.podajSwojaRole();
 
@@ -163,5 +163,25 @@ public class Kontroler {
 		kontekst.wykonajStrategie(interakcjeZUzytkownikiem, obslugaBiletow);
 	}
 
+
+	/**
+	 *
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		InterakcjeZUzytkownikiem interakcje = new FasadaInterakcji();
+		WyswietlanieInformacji widok = new FasadaFabrykaWidoku(interakcje);
+		ObslugaLinii obslugaLinii = new FasadaLinii();
+		ObslugaBiletow obslugaBiletow = new FasadaBiletow();
+
+		// Dodanie przykładowych biletów
+		obslugaBiletow.dodajPrzykladoweBilety();
+
+		// Tworzenie kontrolera z wymaganymi zależnościami
+		Kontroler kontroler = new Kontroler(obslugaLinii, obslugaBiletow, widok, interakcje);
+
+		// Uruchomienie menu aplikacji
+		kontroler.pokazMenu();
+	}
 
 }

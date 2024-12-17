@@ -137,4 +137,26 @@ public class FasadaInterakcji implements InterakcjeZUzytkownikiem {
 		}
 		return wybor;
 	}
+
+	@Override
+	public int podajIle(String komunikat) {
+		int liczba = 0;
+		boolean poprawneDane = false;
+
+		while (!poprawneDane) {
+			System.out.print(komunikat);
+			if (scanner.hasNextInt()) {
+				liczba = scanner.nextInt();
+				if (liczba > 0) { // Sprawdzamy, czy liczba jest dodatnia
+					poprawneDane = true;
+				} else {
+					System.out.println("Liczba musi być większa niż 0. Spróbuj ponownie.");
+				}
+			} else {
+				System.out.println("Nieprawidłowy format liczby. Spróbuj ponownie.");
+				scanner.next();
+			}
+		}
+		return liczba;
+	}
 }

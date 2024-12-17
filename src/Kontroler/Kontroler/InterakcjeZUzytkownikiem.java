@@ -21,4 +21,6 @@
 	Rola podajSwojaRole();
 
 	int podajWyborMenu();
+
+	int podajIle(String komunikat);
 }

@@ -4,11 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3eae806-3596-4037-8e82-c720b3d6a0a7" name="Changes" comment="Poprawione klasy warstwy kontrolera">
+    <list default="true" id="d3eae806-3596-4037-8e82-c720b3d6a0a7" name="Changes" comment="Poprawiono strategie i wyświetlanie informacji">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Kontroler/Kontroler/FasadaInterakcji.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Kontroler/Kontroler/FasadaInterakcji.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Kontroler/Kontroler/InterakcjeZUzytkownikiem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Kontroler/Kontroler/InterakcjeZUzytkownikiem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Kontroler/Kontroler/Kontroler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Kontroler/Kontroler/Kontroler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Kontroler/Kontroler/StrategiaSprawdzaniaKlienta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Kontroler/Kontroler/StrategiaSprawdzaniaKlienta.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Kontroler/Kontroler/StrategiaSprawdzaniaKontrolera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Kontroler/Kontroler/StrategiaSprawdzaniaKontrolera.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Model/Bilet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Model/Bilet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Model/FasadaBiletow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Model/FasadaBiletow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Model/FasadaLinii.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Model/FasadaLinii.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Model/LiniaAutobusowa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Model/LiniaAutobusowa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Model/ObslugaBiletow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Model/ObslugaBiletow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Model/ObslugaLinii.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Model/ObslugaLinii.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Widok/Widok/FasadaFabrykaWidoku.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Widok/Widok/FasadaFabrykaWidoku.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Widok/Widok/WyswietlanieInformacji.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Widok/Widok/WyswietlanieInformacji.java" afterDir="false" />
     </list>
@@ -151,7 +158,14 @@
       <option name="project" value="LOCAL" />
       <updated>1734435395548</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Poprawiono strategie i wyświetlanie informacji">
+      <created>1734436543035</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1734436543035</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -164,6 +178,7 @@
     <MESSAGE value="Poprawiona klasa kontrolera" />
     <MESSAGE value="Przeniesione interfejsy obslugi do modelu" />
     <MESSAGE value="Poprawione klasy warstwy kontrolera" />
-    <option name="LAST_COMMIT_MESSAGE" value="Poprawione klasy warstwy kontrolera" />
+    <MESSAGE value="Poprawiono strategie i wyświetlanie informacji" />
+    <option name="LAST_COMMIT_MESSAGE" value="Poprawiono strategie i wyświetlanie informacji" />
   </component>
 </project>

@@ -1,15 +1,13 @@
 package Model.Model;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
 
 public class FasadaLinii implements ObslugaLinii {
 
 	private Collection<LiniaAutobusowa> LinieAutobusowe = new ArrayList<>();
 
-	/**
-	 * 
-	 * @param nrLinii
-	 */
+	@Override
 	public void dodajLinie(int nrLinii) {
 		if (LinieAutobusowe.stream().noneMatch(linia -> linia.getNrLinii() == nrLinii)) {
 			LiniaAutobusowa nowaLinia = new LiniaAutobusowa(nrLinii);
@@ -20,4 +18,16 @@ public class FasadaLinii implements ObslugaLinii {
 		}
 	}
 
+	@Override
+	public LiniaAutobusowa znajdzLinie(int nrLinii) {
+		return LinieAutobusowe.stream()
+				.filter(linia -> linia.getNrLinii() == nrLinii)
+				.findFirst()
+				.orElse(null);
+	}
+
+	// Dodatkowa metoda do uzyskania listy linii, jeśli jest potrzebna w innych miejscach
+	public Collection<LiniaAutobusowa> getLinie() {
+		return LinieAutobusowe;
+	}
 }

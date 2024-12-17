@@ -12,7 +12,6 @@ public class FasadaFabrykaWidoku implements WyswietlanieInformacji {
 
 	public FasadaFabrykaWidoku(InterakcjeZUzytkownikiem interakcjaZUzytkownikiem) {
 		this.interakcjaZUzytkownikiem = interakcjaZUzytkownikiem;
-		System.out.println("Fabryka widoku zainicjalizowana.");
 	}
 
 	@Override
@@ -28,14 +27,31 @@ public class FasadaFabrykaWidoku implements WyswietlanieInformacji {
 	public void wyswietlInfoLinia(LiniaAutobusowa liniaAutobusowa) {
 		if (liniaAutobusowa != null) {
 			System.out.println("Numer linii: " + liniaAutobusowa.getNrLinii());
+
+			// Sprawdzanie przystanków
 			System.out.println("Przystanki na linii:");
-			liniaAutobusowa.getPrzystanki().forEach(przystanek ->
-					System.out.println("- " + przystanek.getPrzystanek().getNazwa())
-			);
+			if (liniaAutobusowa.getPrzystanki().isEmpty()) {
+				wyswietlBlad("Brak przystanków przypisanych do tej linii.");
+			} else {
+				liniaAutobusowa.getPrzystanki().forEach(przystanek ->
+						System.out.println("- " + przystanek.getPrzystanek().getNazwa())
+				);
+			}
+
+			// Sprawdzanie pojazdów
+			System.out.println("Pojazdy przypisane do linii:");
+			if (liniaAutobusowa.getPojazdy().isEmpty()) {
+				System.out.println("Brak pojazdów przypisanych do tej linii.");
+			} else {
+				liniaAutobusowa.getPojazdy().forEach(pojazd ->
+						System.out.println("- Numer rejestracyjny: " + pojazd.getNrRejestracyjny())
+				);
+			}
 		} else {
-			System.out.println("Brak danych o linii autobusowej.");
+			wyswietlBlad("Brak danych o linii autobusowej.");
 		}
 	}
+
 
 	@Override
 	public void wyswietlInfoPrzystanek(PrzystanekLinii przystanekLinii) {
@@ -73,5 +89,15 @@ public class FasadaFabrykaWidoku implements WyswietlanieInformacji {
 		} else {
 			System.out.println("Brak danych o osobie.");
 		}
+	}
+
+	@Override
+	public void wyswietlBlad(String komunikat) {
+		System.out.println("Blad! " + komunikat);
+	}
+
+	@Override
+	public void wyswietlPowodzenie(String komunikat) {
+		System.out.println("Powodzenie! " + komunikat);
 	}
 }

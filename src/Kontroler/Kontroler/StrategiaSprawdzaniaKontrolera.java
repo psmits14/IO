@@ -44,6 +44,9 @@ public class StrategiaSprawdzaniaKontrolera implements StrategiaSprawdzaniaBilet
 					System.out.println("Brak danych osoby przypisanej do biletu.");
 				}
 			}
+			else {
+				System.out.println("Bilet jest nieimienny. ");
+			}
 		} else {
 			System.out.println("Bilet nr " + nrBiletu + " nie istnieje. Proszę o przedstawienie ważnego biletu, inaczej konieczne bedzie wystawienie mandatu");
 		}

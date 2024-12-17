@@ -30,4 +30,7 @@ public interface WyswietlanieInformacji {
 	 */
 	void wyswietlDaneDoWeryfikacji(Osoba osoba);
 
+	void wyswietlBlad(String komunikat);
+
+	void wyswietlPowodzenie(String komunikat);
 }

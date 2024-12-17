@@ -59,7 +59,7 @@ public class Bilet {
 	}
 
 	public boolean SprawdzWaznosc(int nrBiletu) {
-		// Sprawdzenie, czy numer biletu pasuje oraz czy data ważności nie minęła
-		return DataWaznosci != null && LocalDateTime.now().isBefore(DataWaznosci);
+		// Sprawdzenie, czy numer biletu się zgadza oraz czy data ważności nie minęła
+		return this.NrBiletu == nrBiletu && DataWaznosci != null && LocalDateTime.now().isBefore(DataWaznosci);
 	}
 }
