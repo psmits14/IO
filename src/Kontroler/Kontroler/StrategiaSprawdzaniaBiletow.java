@@ -1,6 +1,6 @@
 package Kontroler.Kontroler;
 
-import Widok.Widok.InterakcjeZUzytkownikiem;
+import Model.Model.ObslugaBiletow;
 
 public interface StrategiaSprawdzaniaBiletow {
 

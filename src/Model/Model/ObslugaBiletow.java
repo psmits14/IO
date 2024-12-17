@@ -1,8 +1,8 @@
-package Kontroler.Kontroler;
+package Model.Model;
 
 import Model.Model.Bilet;
 
 public interface ObslugaBiletow {
 	boolean sprawdzWaznosc(int nrBiletu);
-	Bilet pobierzBilet(int nrBiletu); // Pobiera bilet na podstawie numeru
+	Bilet pobierzBilet(int nrBiletu);
 }

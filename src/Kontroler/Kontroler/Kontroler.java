@@ -1,5 +1,7 @@
 package Kontroler.Kontroler;
 
+import Model.Model.ObslugaBiletow;
+import Model.Model.ObslugaLinii;
 import Model.Model.Rola;
 import Widok.Widok.*;
 

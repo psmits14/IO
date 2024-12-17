@@ -1,6 +1,5 @@
 package Kontroler.Kontroler;
 
-import Widok.Widok.*;
 import Model.Model.*;
 
 public class StrategiaSprawdzaniaKlienta implements StrategiaSprawdzaniaBiletow {

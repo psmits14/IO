@@ -2,7 +2,7 @@ package Model.Model;
 
 import java.util.*;
 
-public class FasadaLinii {
+public class FasadaLinii implements ObslugaLinii {
 
 	private Collection<LiniaAutobusowa> LinieAutobusowe = new ArrayList<>();
 

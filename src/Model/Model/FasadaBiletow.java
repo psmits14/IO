@@ -1,6 +1,5 @@
 package Model.Model;
 
-import Kontroler.Kontroler.*;
 import java.util.*;
 
 public class FasadaBiletow implements ObslugaBiletow {

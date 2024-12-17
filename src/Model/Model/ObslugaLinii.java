@@ -1,4 +1,4 @@
-package Kontroler.Kontroler;
+package Model.Model;
 
 public interface ObslugaLinii {
 
