@@ -6,7 +6,7 @@ import java.util.Objects;
  * Klasa reprezentująca pojazd przypisany do linii autobusowej.
  * Każdy pojazd jest identyfikowany przez unikalny numer rejestracyjny.
  */
-public class Pojazd {
+public abstract class Pojazd {
 
 	/** Numer rejestracyjny pojazdu. */
 	private String nrRejestracyjny = "";

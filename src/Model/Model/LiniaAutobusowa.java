@@ -93,7 +93,7 @@ public class LiniaAutobusowa {
 		if (nrRejestracyjny == null || nrRejestracyjny.isEmpty()) {
 			return false;
 		}
-		KreatorPojazdow kreator = new KreatorPojazdow();
+		KreatorPojazdow kreator = new KreatorAutobus();
 		Pojazd nowyPojazd = kreator.stworzPojazd(nrRejestracyjny);
 
 		if (!pojazdy.contains(nowyPojazd)) {
