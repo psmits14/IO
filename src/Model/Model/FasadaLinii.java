@@ -19,16 +19,13 @@ public class FasadaLinii implements ObslugaLinii {
 	 */
 	@Override
 	public boolean dodajLinie(int nrLinii) {
-		boolean czyIstnieje = LinieAutobusowe.stream()
-				.anyMatch(linia -> linia.getNrLinii() == nrLinii);
-
-		if (!czyIstnieje) {
-			LiniaAutobusowa nowaLinia = new LiniaAutobusowa(nrLinii);
-			LinieAutobusowe.add(nowaLinia);
+		if (znajdzLinie(nrLinii) == null) { // Sprawdza, czy linia o podanym numerze nie istnieje
+			LinieAutobusowe.add(new LiniaAutobusowa(nrLinii)); // Dodaje nową linię
 			return true;
 		}
-		return false;
+		return false; // Linia już istnieje
 	}
+
 
 	/**
 	 * Wyszukuje linię autobusową na podstawie numeru linii.
@@ -38,9 +35,12 @@ public class FasadaLinii implements ObslugaLinii {
 	 */
 	@Override
 	public LiniaAutobusowa znajdzLinie(int nrLinii) {
-		return LinieAutobusowe.stream()
-				.filter(linia -> linia.getNrLinii() == nrLinii)
-				.findFirst()
-				.orElse(null);
+		for (LiniaAutobusowa linia : LinieAutobusowe) {
+			if (linia.getNrLinii() == nrLinii) {
+				return linia;
+			}
+		}
+		return null;
 	}
+
 }

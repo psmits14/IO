@@ -8,8 +8,8 @@ public class KreatorAutobus extends KreatorPojazdow {
      * @return Obiekt {@link Pojazd} z ustawionym numerem rejestracyjnym.
      */
     public Pojazd stworzPojazd(String nrRejestracyjny) {
-        Pojazd pojazd = new Autobus();
-        pojazd.setNrRejestracyjny(nrRejestracyjny);
-        return pojazd;
+        Pojazd autobus = new Autobus();
+        autobus.setNrRejestracyjny(nrRejestracyjny);
+        return autobus;
     }
 }
