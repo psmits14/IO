@@ -55,14 +55,13 @@ public class LiniaAutobusowa {
 	 * @return {@code true} jeśli przystanek został dodany pomyślnie, w przeciwnym razie {@code false}.
 	 */
 	public boolean dodajPrzystanekDoLinii(String nazwaPrzystanku) {
-		if (nazwaPrzystanku != null && !nazwaPrzystanku.isEmpty()) {
-			PrzystanekLinii przystanekLinii = new PrzystanekLinii(nazwaPrzystanku, this, new ArrayList<>());
-			if (!przystanki.contains(przystanekLinii)) {
-				przystanki.add(przystanekLinii);
-				return true;
-			}
+		if (nazwaPrzystanku == null || nazwaPrzystanku.isEmpty()) {
+			return false;
 		}
-		return false;
+		Collection<LocalTime> godzinyOdjazdow = new ArrayList<>();
+		PrzystanekLinii przystanekLinii = new PrzystanekLinii(nazwaPrzystanku, this, godzinyOdjazdow);
+		przystanki.add(przystanekLinii);
+		return true;
 	}
 
 	/**
@@ -95,12 +94,8 @@ public class LiniaAutobusowa {
 		}
 		KreatorPojazdow kreator = new KreatorAutobus();
 		Pojazd nowyPojazd = kreator.stworzPojazd(nrRejestracyjny);
-
-		if (!pojazdy.contains(nowyPojazd)) {
-			pojazdy.add(nowyPojazd);
-			return true;
-		}
-		return false;
+		pojazdy.add(nowyPojazd);
+		return true;
 	}
 
 	/**
@@ -111,12 +106,14 @@ public class LiniaAutobusowa {
 	 * @return {@code true} jeśli godziny zostały dodane pomyślnie, w przeciwnym razie {@code false}.
 	 */
 	public boolean dodajGodzinyOdjazdowPrzystanku(String nazwaPrzystanku, Collection<LocalTime> godzinyOdjazdow) {
-		if (nazwaPrzystanku == null || godzinyOdjazdow == null || godzinyOdjazdow.isEmpty()) {
+		if (nazwaPrzystanku == null || nazwaPrzystanku.isEmpty() || godzinyOdjazdow == null || godzinyOdjazdow.isEmpty()) {
 			return false;
 		}
 
 		for (PrzystanekLinii przystanekLinii : przystanki) {
-			if (przystanekLinii.getPrzystanek().getNazwa().equals(nazwaPrzystanku)) {
+			Przystanek obecniePrzeszukiwanyPrzystanek = przystanekLinii.getPrzystanek();
+			String nazwaPrzeszukiwanyPrzystanek = obecniePrzeszukiwanyPrzystanek.getNazwa();
+			if (nazwaPrzeszukiwanyPrzystanek.equals(nazwaPrzystanku)) {
 				przystanekLinii.setGodzinyOdjazdow(godzinyOdjazdow);
 				return true;
 			}

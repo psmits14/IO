@@ -67,7 +67,6 @@ public class Kontroler {
 	 * Dodaje nową linię autobusową, pojazdy oraz przystanki wraz z godzinami odjazdów.
 	 */
 	public void dodawanieLinii() {
-		wyswietlanieInformacji.wyswietlInformacje("--- Dodawanie nowej linii autobusowej ---");
 
 		int nrLinii = interakcjeZUzytkownikiem.podajNrLinii();
 
@@ -77,44 +76,44 @@ public class Kontroler {
 			LiniaAutobusowa nowaLinia = obslugaLinii.znajdzLinie(nrLinii);
 
 			int liczbaPojazdow = interakcjeZUzytkownikiem.podajIle("Ile pojazdów chcesz dodać do linii? ");
-			for (int i = 0; i < liczbaPojazdow; i++) {
+			for (int i = 1; i <= liczbaPojazdow; i++) {
 				String nrRejestracyjny = interakcjeZUzytkownikiem.podajNrRejesstracyjny();
 				boolean pojazdDodany = nowaLinia.dodajPojazdDoLinii(nrRejestracyjny);
 				if (pojazdDodany) {
-					wyswietlanieInformacji.wyswietlPowodzenie("Dodano pojazd o numerze rejestracyjnym: " + nrRejestracyjny);
+					wyswietlanieInformacji.wyswietlPowodzenie("Dodano pojazd");
 				} else {
-					wyswietlanieInformacji.wyswietlBlad("Pojazd o numerze rejestracyjnym \"" + nrRejestracyjny + "\" już istnieje.");
+					wyswietlanieInformacji.wyswietlBlad("Pojazd o tym numerze już istnieje.");
 				}
 			}
 
 			int liczbaPrzystankow = interakcjeZUzytkownikiem.podajIle("Ile przystanków chcesz dodać do linii? ");
-			for (int i = 0; i < liczbaPrzystankow; i++) {
+			for (int i = 1; i <= liczbaPrzystankow; i++) {
 				String nazwaPrzystanku = interakcjeZUzytkownikiem.podajNazwePrzystanku();
 				boolean przystanekDodany = nowaLinia.dodajPrzystanekDoLinii(nazwaPrzystanku);
 
 				if (przystanekDodany) {
-					wyswietlanieInformacji.wyswietlPowodzenie("Dodano przystanek: " + nazwaPrzystanku);
+					wyswietlanieInformacji.wyswietlPowodzenie("Dodano przystanek. ");
 
 					// Ustawianie godzin odjazdów dla przystanku
 					int liczbaGodzin = interakcjeZUzytkownikiem.podajIle("Ile godzin odjazdów chcesz dodać dla przystanku \"" + nazwaPrzystanku + "\"? ");
 					Collection<LocalTime> godzinyOdjazdow = new ArrayList<>();
-					for (int j = 0; j < liczbaGodzin; j++) {
+					for (int j = 1; j <= liczbaGodzin; j++) {
 						LocalTime godzina = interakcjeZUzytkownikiem.podajGodzineOdjazdu();
 						godzinyOdjazdow.add(godzina);
 					}
 					boolean godzinyDodane = nowaLinia.dodajGodzinyOdjazdowPrzystanku(nazwaPrzystanku, godzinyOdjazdow);
 					if (godzinyDodane) {
-						wyswietlanieInformacji.wyswietlPowodzenie("Dodano godziny odjazdów dla przystanku: " + nazwaPrzystanku);
+						wyswietlanieInformacji.wyswietlPowodzenie("Dodano godziny odjazdów.");
 					} else {
-						wyswietlanieInformacji.wyswietlBlad("Nie udało się dodać godzin odjazdów dla przystanku: " + nazwaPrzystanku);
+						wyswietlanieInformacji.wyswietlBlad("Nie udało się dodać godzin odjazdów. ");
 					}
 				} else {
-					wyswietlanieInformacji.wyswietlBlad("Przystanek \"" + nazwaPrzystanku + "\" już istnieje w tej linii.");
+					wyswietlanieInformacji.wyswietlBlad("Przystanek już istnieje w tej linii.");
 				}
 			}
 			wyswietlanieInformacji.wyswietlPowodzenie("Linia autobusowa nr " + nrLinii + " została pomyślnie utworzona i skonfigurowana.");
 		} else {
-			wyswietlanieInformacji.wyswietlBlad("Linia autobusowa o numerze \"" + nrLinii + "\" już istnieje.");
+			wyswietlanieInformacji.wyswietlBlad("Linia autobusowa już istnieje.");
 		}
 	}
 

@@ -19,11 +19,13 @@ public class FasadaLinii implements ObslugaLinii {
 	 */
 	@Override
 	public boolean dodajLinie(int nrLinii) {
-		if (znajdzLinie(nrLinii) == null) { // Sprawdza, czy linia o podanym numerze nie istnieje
-			LinieAutobusowe.add(new LiniaAutobusowa(nrLinii)); // Dodaje nową linię
+		LiniaAutobusowa znalezionaLinia = znajdzLinie(nrLinii);
+		if (znalezionaLinia == null) { // Sprawdza, czy linia o podanym numerze nie istnieje
+			LiniaAutobusowa nowaLinia = new LiniaAutobusowa(nrLinii);
+			LinieAutobusowe.add(nowaLinia); // Dodaje nową linię
 			return true;
 		}
-		return false; // Linia już istnieje
+		else return false; // Linia już istnieje
 	}
 
 
@@ -33,6 +35,7 @@ public class FasadaLinii implements ObslugaLinii {
 	 * @param nrLinii Numer linii do wyszukania.
 	 * @return Obiekt {@link LiniaAutobusowa}, jeśli linia istnieje; null, jeśli nie znaleziono linii.
 	 */
+	// osobny diagram
 	@Override
 	public LiniaAutobusowa znajdzLinie(int nrLinii) {
 		for (LiniaAutobusowa linia : LinieAutobusowe) {
