@@ -12,7 +12,7 @@
 
 	int podajNrLinii();
 
-	String podajNrRejesstracyjny();
+	String podajNrRejestracyjny();
 
 	String podajNazwePrzystanku();
 

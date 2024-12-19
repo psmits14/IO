@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3eae806-3596-4037-8e82-c720b3d6a0a7" name="Changes" comment="Poprawki kodu">
+    <list default="true" id="d3eae806-3596-4037-8e82-c720b3d6a0a7" name="Changes" comment="Uproszczenia dla diagramów sekwencji">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Kontroler/Kontroler/FasadaInterakcji.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Kontroler/Kontroler/FasadaInterakcji.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Kontroler/Kontroler/InterakcjeZUzytkownikiem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Kontroler/Kontroler/InterakcjeZUzytkownikiem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Kontroler/Kontroler/Kontroler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Kontroler/Kontroler/Kontroler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Model/FasadaLinii.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Model/FasadaLinii.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Model/LiniaAutobusowa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Model/LiniaAutobusowa.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -191,7 +191,14 @@
       <option name="project" value="LOCAL" />
       <updated>1734528433093</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Uproszczenia dla diagramów sekwencji">
+      <created>1734611365004</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1734611365004</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -208,6 +215,7 @@
     <MESSAGE value="Gotowy działający kod :)" />
     <MESSAGE value="Poprawki kodu, dodane komentarze ;&gt;" />
     <MESSAGE value="Poprawki kodu" />
-    <option name="LAST_COMMIT_MESSAGE" value="Poprawki kodu" />
+    <MESSAGE value="Uproszczenia dla diagramów sekwencji" />
+    <option name="LAST_COMMIT_MESSAGE" value="Uproszczenia dla diagramów sekwencji" />
   </component>
 </project>

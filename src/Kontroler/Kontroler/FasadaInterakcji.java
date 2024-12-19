@@ -75,7 +75,7 @@ public class FasadaInterakcji implements InterakcjeZUzytkownikiem {
 				poprawneDane = true;
 			} else {
 				System.out.println("Nieprawidłowy numer. Spróbuj ponownie.");
-				scanner.next(); // Wyczyść nieprawidłowe dane
+				scanner.next();
 			}
 		}
 		return nrLinii;
@@ -98,7 +98,7 @@ public class FasadaInterakcji implements InterakcjeZUzytkownikiem {
 	 * @return numer rejestracyjny pojazdu
 	 */
 	@Override
-	public String podajNrRejesstracyjny() {
+	public String podajNrRejestracyjny() {
 		System.out.print("Podaj numer rejestracyjny pojazdu: ");
 		return scanner.next();
 	}

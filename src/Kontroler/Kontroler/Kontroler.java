@@ -77,7 +77,7 @@ public class Kontroler {
 
 			int liczbaPojazdow = interakcjeZUzytkownikiem.podajIle("Ile pojazdów chcesz dodać do linii? ");
 			for (int i = 1; i <= liczbaPojazdow; i++) {
-				String nrRejestracyjny = interakcjeZUzytkownikiem.podajNrRejesstracyjny();
+				String nrRejestracyjny = interakcjeZUzytkownikiem.podajNrRejestracyjny();
 				boolean pojazdDodany = nowaLinia.dodajPojazdDoLinii(nrRejestracyjny);
 				if (pojazdDodany) {
 					wyswietlanieInformacji.wyswietlPowodzenie("Dodano pojazd");
