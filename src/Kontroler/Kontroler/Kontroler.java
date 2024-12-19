@@ -111,7 +111,7 @@ public class Kontroler {
 					wyswietlanieInformacji.wyswietlBlad("Przystanek już istnieje w tej linii.");
 				}
 			}
-			wyswietlanieInformacji.wyswietlPowodzenie("Linia autobusowa nr " + nrLinii + " została pomyślnie utworzona i skonfigurowana.");
+			wyswietlanieInformacji.wyswietlPowodzenie("Linia autobusowa została pomyślnie utworzona i skonfigurowana.");
 		} else {
 			wyswietlanieInformacji.wyswietlBlad("Linia autobusowa już istnieje.");
 		}
@@ -121,7 +121,6 @@ public class Kontroler {
 	 * Wyświetla informacje o linii autobusowej.
 	 */
 	public void informacjeLinia() {
-		wyswietlanieInformacji.wyswietlInformacje("--- Wyświetlanie informacji o linii autobusowej ---");
 		int nrLinii = interakcjeZUzytkownikiem.podajNrLinii();
 		LiniaAutobusowa linia = obslugaLinii.znajdzLinie(nrLinii);
 
@@ -136,7 +135,6 @@ public class Kontroler {
 	 * Wyświetla informacje o przystanku w linii autobusowej.
 	 */
 	public void informacjePrzystanek() {
-		wyswietlanieInformacji.wyswietlInformacje("--- Wyświetlanie informacji o przystanku w linii autobusowej ---");
 
 		int nrLinii = interakcjeZUzytkownikiem.podajNrLinii();
 		LiniaAutobusowa linia = obslugaLinii.znajdzLinie(nrLinii);
@@ -159,14 +157,7 @@ public class Kontroler {
 	 * Sprawdza ważność biletu na podstawie wybranej strategii.
 	 */
 	public void sprawdzanieWaznosci() {
-		// Pobieranie roli użytkownika
 		Rola rolaUzytkownika = interakcjeZUzytkownikiem.podajSwojaRole();
-
-		// Wybór strategii na podstawie roli
-		if (rolaUzytkownika == null) {
-			wyswietlanieInformacji.wyswietlBlad("Nie udało się określić roli użytkownika.");
-			return;
-		}
 
 		switch (rolaUzytkownika) {
 			case Klient:
@@ -176,11 +167,9 @@ public class Kontroler {
 				kontekst.setStrategia(new StrategiaSprawdzaniaKontrolera(wyswietlanieInformacji));
 				break;
 			default:
-				wyswietlanieInformacji.wyswietlInformacje("Brak możliwości sprawdzenia biletów dla roli: " + rolaUzytkownika);
 				return;
 		}
 
-		// Przekazanie zależności do strategii i jej wykonanie
 		kontekst.wykonajStrategie(interakcjeZUzytkownikiem, obslugaBiletow);
 	}
 

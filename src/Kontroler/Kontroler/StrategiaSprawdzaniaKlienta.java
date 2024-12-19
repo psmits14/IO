@@ -3,6 +3,8 @@ package Kontroler.Kontroler;
 import Model.Model.*;
 import Widok.Widok.*;
 
+import java.time.LocalDateTime;
+
 /**
  * Klasa implementująca interfejs {@link StrategiaSprawdzaniaBiletow}.
  * Klasa implementująca strategię sprawdzania ważności biletu dla klienta.
@@ -28,8 +30,6 @@ public class StrategiaSprawdzaniaKlienta implements StrategiaSprawdzaniaBiletow 
 	 */
 	@Override
 	public void wykonajStrategie(InterakcjeZUzytkownikiem interakcjeZUzytkownikiem, ObslugaBiletow obslugaBiletow) {
-		wyswietlanieInformacji.wyswietlInformacje("Strategia dla Klienta: Sprawdzanie biletu...");
-
 		int nrBiletu = interakcjeZUzytkownikiem.podajNrBiletu();
 		Bilet bilet = obslugaBiletow.pobierzBilet(nrBiletu);
 
@@ -38,10 +38,11 @@ public class StrategiaSprawdzaniaKlienta implements StrategiaSprawdzaniaBiletow 
 			wyswietlanieInformacji.wyswietlInfoWaznoscBiletu(czyWazny);
 
 			if (czyWazny) {
-				wyswietlanieInformacji.wyswietlInformacje("Bilet ważny do: " + bilet.getDataWaznosci());
+				LocalDateTime data = bilet.getDataWaznosci();
+				wyswietlanieInformacji.wyswietlInformacje("Bilet ważny do: " + data);
 			}
 		} else {
-			wyswietlanieInformacji.wyswietlBlad("Bilet nr " + nrBiletu + " nie istnieje.");
+			wyswietlanieInformacji.wyswietlBlad("Bilet nie istnieje.");
 		}
 	}
 }

@@ -22,10 +22,6 @@ public class Kontekst {
 	 * @param obslugaBiletow interfejs do sprawdzania biletów
 	 */
 	public void wykonajStrategie(InterakcjeZUzytkownikiem interakcjeZUzytkownikiem, ObslugaBiletow obslugaBiletow) {
-		if (strategia != null) {
 			strategia.wykonajStrategie(interakcjeZUzytkownikiem, obslugaBiletow);
-		} else {
-			System.out.println("Nie ustawiono strategii sprawdzania biletów.");
-		}
 	}
 }

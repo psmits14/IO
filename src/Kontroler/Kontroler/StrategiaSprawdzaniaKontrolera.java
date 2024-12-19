@@ -29,8 +29,6 @@ public class StrategiaSprawdzaniaKontrolera implements StrategiaSprawdzaniaBilet
 	 */
 	@Override
 	public void wykonajStrategie(InterakcjeZUzytkownikiem interakcjeZUzytkownikiem, ObslugaBiletow obslugaBiletow) {
-		wyswietlanieInformacji.wyswietlInformacje("Strategia dla Kontrolera: Dokładne sprawdzanie biletu...");
-
 		int nrBiletu = interakcjeZUzytkownikiem.podajNrBiletu();
 		Bilet bilet = obslugaBiletow.pobierzBilet(nrBiletu);
 
@@ -39,28 +37,19 @@ public class StrategiaSprawdzaniaKontrolera implements StrategiaSprawdzaniaBilet
 			wyswietlanieInformacji.wyswietlInfoWaznoscBiletu(czyWazny);
 
 			if (bilet.getImiennosc()) {
-				wyswietlanieInformacji.wyswietlInformacje("Bilet jest imienny. Weryfikacja danych osoby...");
 
 				Osoba osoba = bilet.getOsoba();
 				if (osoba != null) {
-					// Wyświetlanie danych osoby
 					wyswietlanieInformacji.wyswietlDaneDoWeryfikacji(osoba);
-
-					// Weryfikacja zgodności danych
 					if (interakcjeZUzytkownikiem.zatwierdzZgodnoscOsoby()) {
 						wyswietlanieInformacji.wyswietlInformacje("Zgodność danych została potwierdzona.");
 					} else {
 						wyswietlanieInformacji.wyswietlInformacje("Zgodność danych nie została potwierdzona. Bilet jest nieważny. Wystawianie mandatu.");
 					}
-				} else {
-					wyswietlanieInformacji.wyswietlBlad("Brak danych osoby przypisanej do biletu.");
 				}
 			}
-			else {
-				wyswietlanieInformacji.wyswietlInformacje("Bilet jest nieimienny. ");
-			}
 		} else {
-			wyswietlanieInformacji.wyswietlBlad("Bilet nr " + nrBiletu + " nie istnieje. Proszę o przedstawienie ważnego biletu, inaczej konieczne bedzie wystawienie mandatu");
+			wyswietlanieInformacji.wyswietlBlad("Bilet nie istnieje. ");
 		}
 	}
 }
